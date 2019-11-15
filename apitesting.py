@@ -1,33 +1,18 @@
-import json, urllib3, requests
+import json, urllib3, requests, math
 from opensky_api import OpenSkyApi
 
 
 
 #opensky stuff goes here
-http = urllib3.PoolManager()
-#r = http.request('GET', 'https://opensky-network.org/api/states/all?lamin=45.8389&lomin=5.9962&lamax=47.8229&lomax=10.5226')
-# r.data
-# print(r.data)
-
-
-
-
-
 def planeswithin(minlat, maxlat, minlong, maxlong):
     api = OpenSkyApi()
     states = api.get_states(bbox=(minlat, maxlat, minlong, maxlong))
+    holdout = []
     for s in states.states:
-        print("(%r, %r, %r, %r)" % (s.longitude, s.latitude, s.baro_altitude, s.velocity))
-
-
-
-
-
+        holdout.append("(%r, %r, %r, %r)" % (s.longitude, s.latitude, s.baro_altitude, s.velocity))
+    return(holdout)
 
 #geolocation stuff goes here
-
-
-
 def location():
     ip_grabber = requests.get('https://get.geojs.io/v1/ip.json')
     my_ip = ip_grabber.json()['ip']
@@ -36,3 +21,17 @@ def location():
     loc_data = loc_req.json()
     return(loc_data)
 
+#todo: math to make this radius
+def planes_near_me(radius):
+    myloc = location()
+
+    #planeswithin()
+
+def pointfrompoint(d, heading, lat1 = float(location()['latitude']), lon1 = float(location()['longitude'])):
+    lat = math.asin(math.sin(lat1) * math.cos(d) + math.cos(lat1) * math.sin(d) * math.cos(heading))
+    dlon = math.atan2(math.sin(heading) * math.sin(d) * math.cos(lat1), math.cos(d) - math.sin(lat1) * math.sin(lat))
+    lon = (lon1 - dlon + math.pi)%( 2 * math.pi) - math.pi
+    print(lat, lon)
+
+pointfrompoint(3,0)
+planes_near_me(5)
