@@ -1,4 +1,4 @@
-leeR -- 2019-11-14 23:24
+rayL -- 2019-11-14 23:24
 Created devlog and doc folder
-rayL -- 2019-11-15 00:12
+rayL -- 2019-11-15 00:13
 added updateLog.py; credit goes out to my man junhee lee
