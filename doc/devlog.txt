@@ -15,3 +15,6 @@ successfully connected to the OpenSky API and has made unsuccessful attempts to 
 
 rayL -- 2019-11-15 20:28
 updated the design doc's list of components and mvp; brainstormed the bounds of latitude/longitude with jesse (formula is now maybe successful?)
+
+rayL -- 2019-11-15 22:10
+updated the design doc on MVP
