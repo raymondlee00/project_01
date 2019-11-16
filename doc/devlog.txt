@@ -9,3 +9,6 @@ added static/css folder and main.css file in static/css
 
 rayL -- 2019-11-15 09:26
 finalized the idea for the project; brainstormed for ideas; going with jesse's idea of using the opensky api to find nearby planes and using accuweather to dtermine the weather around where the plane is. we will also use the iplocation api to estimate planes around a certain radius
+
+JesseH -- 2019-11-15 20:27
+successfully connected to the OpenSky API and has made unsuccessful attempts to calculate the bounds of latitude/longitude from user-defined radius/circle
