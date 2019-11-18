@@ -18,3 +18,6 @@ updated the design doc's list of components and mvp; brainstormed the bounds of 
 
 rayL -- 2019-11-15 22:10
 updated the design doc on MVP
+
+rayL -- 2019-11-18 03:46
+uploaded design doc
