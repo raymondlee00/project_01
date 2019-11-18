@@ -1,9 +1,9 @@
 {% extends "base.html" %}
     {% block bodies %}
-        <form action="/results">
-                    Area to search:<br>
-                    <input type="number" name="radius"><br>
-
-                    <input type = "submit" name = "submitbutton">
+        <form action="/results" method="post">
+                    how many degrees latitude from current location<br>
+                    <input type="text" name="latitude"><br>
+                <input type ="text" name="longitude">
+                    <input type = "submit" value="submit">
          </form>
     {% endblock %}

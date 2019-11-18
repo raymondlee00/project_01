@@ -8,6 +8,10 @@
 <br>
     {% endfor %}
 {% endif %}
-
+{% if chart %}}
+    <div id="chart">
+       <embed type="image/svg+xml" src= {{ chart|safe }} />
+    </div>
+{% endif %}
 
 {% endblock %}
