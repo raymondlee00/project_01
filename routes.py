@@ -18,11 +18,15 @@ def showPlanes():
     myloc = location()
     mylat = float(myloc['latitude'])
     mylong = float(myloc['longitude'])
-    planes = planeswithin(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude)
-    chart = pygal.XY(xrange=(mylat - latitude, mylat + latitude),yrange=(mylong - longitude, mylong + longitude))
+    planes = planeswithin(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude, False)
+    print(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude)
+    chart = pygal.XY(xrange=(mylat - latitude, mylat + latitude), yrange=(mylong - longitude, mylong + longitude))
     chart.title = 'Planes near you'
     for plane in planes:
-        templist = [float(plane[0]), float(plane[1])]
-        chart.add('callsign:' + plane[6], templist)
+        try:
+            templist = [(float(plane[0]), -(float(plane[1])))]
+            chart.add('callsign:' + plane[6], templist)
+        except:
+            print("blank")
     chart = chart.render_data_uri()
-    return render_template('results.html', planes = planes)
+    return render_template('results.html', planes = planes, chart = chart)
