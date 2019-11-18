@@ -1,4 +1,4 @@
-import json, urllib3, requests, math
+import json, urllib3, requests, math, pygal
 from opensky_api import OpenSkyApi
 
 
@@ -28,10 +28,22 @@ def planes_near_me(radius):
     #planeswithin()
 
 def pointfrompoint(d, heading, lat1 = float(location()['latitude']), lon1 = float(location()['longitude'])):
+    # lat = math.asin(math.sin(lat1) * math.cos(d) + math.cos(lat1) * math.sin(d) * math.cos(heading))
+    #
+    # lon = (lon1 - math.asin(math.sin(heading) * math.sin(d) / math.cos(lat)) + math.pi)%(2 * math.pi) - math.pi
+    #
     lat = math.asin(math.sin(lat1) * math.cos(d) + math.cos(lat1) * math.sin(d) * math.cos(heading))
     dlon = math.atan2(math.sin(heading) * math.sin(d) * math.cos(lat1), math.cos(d) - math.sin(lat1) * math.sin(lat))
     lon = (lon1 - dlon + math.pi)%( 2 * math.pi) - math.pi
     print(lat, lon)
 
-pointfrompoint(3,0)
+
+print(location())
+pointfrompoint(3,math.pi)
 planes_near_me(5)
+
+
+# 40.7263 + -0.2559971502571034
+# -73.9818 + 1.4164236861550314
+#
+#         40.4703028497429,-72.56537631384498
