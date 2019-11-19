@@ -31,3 +31,5 @@ def getbackgroundmap(minlat, maxlat, minlong, maxlong):
 
 
 getbackgroundmap(5,5,5,5)
+
+#todo: add scraping of FAA site for callsign, then generate google search from plane make and model, then grab images
