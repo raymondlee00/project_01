@@ -21,3 +21,6 @@ updated the design doc on MVP
 
 rayL -- 2019-11-18 03:46
 uploaded design doc
+
+JesseHall -- 2019-11-19 08:30
+set up several things and showed group members how to manually install packages
