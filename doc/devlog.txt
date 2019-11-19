@@ -21,3 +21,6 @@ updated the design doc on MVP
 
 rayL -- 2019-11-18 03:46
 uploaded design doc
+
+jesseH -- 2019-11-19 08:22
+added/updated a bunch of python files for connecting to the opensky-api and displaying plot points on a graph
