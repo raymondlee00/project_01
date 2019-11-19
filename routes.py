@@ -40,3 +40,7 @@ def showPlanes():
   #  chart.add('you', [(mylat - latitude, mylong), (mylat + latitude, mylong)])
     chart = chart.render_data_uri()
     return render_template('results.html', planes = planes, chart = chart)
+
+if __name__  == "__main__":
+        app.debug = True
+        app.run()
