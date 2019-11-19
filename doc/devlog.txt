@@ -27,3 +27,5 @@ added/updated a bunch of python files for connecting to the opensky-api and disp
 
 rayL -- 2019-11-19 09:23
 updated .gitignore to ignore keys.txt
+jesseH -- 2019-11-19 08:30
+set up several things and showed group members how to manually install packages
