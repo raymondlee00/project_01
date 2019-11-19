@@ -1,5 +1,6 @@
 from flask import Flask, render_template, flash, redirect, url_for, request
-from apitesting import planeswithin, location
+from apitesting import planeswithin
+from scrapers import location
 import pygal
 import numpy as np
 import pandas as pd
