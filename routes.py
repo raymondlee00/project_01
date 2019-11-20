@@ -1,6 +1,5 @@
 from flask import Flask, render_template, flash, redirect, url_for, request, session
 import os #for generating a secret key
-import flask_login
 from apitesting import planeswithin
 from scrapers import location
 import pygal
