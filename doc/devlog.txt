@@ -37,3 +37,5 @@ worked on the basic layout for authentication system for other group members to 
 rayL -- 2019-11-19 20:24
 worked on the basic layout for authentication system for other group members to build off up, especially Jesse since he needs a way to tell uniqueness of users
 >>>>>>> login
+TanzimE--- 2019-11-20 2:28AM
+made database with the necessary functions teammates asked fore, working on an update function and how to incorporate dict datatype there

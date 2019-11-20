@@ -4,9 +4,12 @@ from scrapers import location
 
 
 # opensky stuff goes here
+#todo: convert to rest api
 def planeswithin(minlat, maxlat, minlong, maxlong, test = False):
     api = OpenSkyApi()
     if not(test):
+        restreq = "https://opensky-network.org/api/states/all?lamin=" +  str(minlat)+ "&lomin=" + str(minlong) + "&lamax=" + str(maxlat) + "&lomax=" + str(maxlong)
+        print(restreq)
         try:
             states = api.get_states(bbox=(minlat, maxlat, minlong, maxlong))
             holdout = []
@@ -31,7 +34,7 @@ def planeswithin(minlat, maxlat, minlong, maxlong, test = False):
             del holdout[idx]
     return (holdout)
 
-
+planeswithin(39.7263, 41.7263, -74.9818, -72.9818)
 
 
 def pointfrompoint(d, heading, lat1=float(location()['latitude']), lon1=float(location()['longitude'])):
