@@ -1,4 +1,4 @@
-import json, urllib3, requests, math, pygal
+import json, requests, math, pygal
 from opensky_api import OpenSkyApi
 from scrapers import location
 
@@ -29,21 +29,9 @@ def planeswithin(minlat, maxlat, minlong, maxlong, test = False):
             holdout[idx] = holdmeh
         except ValueError:
             del holdout[idx]
-
     return (holdout)
 
 
-
-
-# todo: math to make this radius
-
-def planes_near_me(latitude, longitude):
-    myloc = location()
-    mylat = float(myloc['latitude'])
-    mylong = float(myloc['longitude'])
-    return planeswithin(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude)
-
-    # planeswithin()
 
 
 def pointfrompoint(d, heading, lat1=float(location()['latitude']), lon1=float(location()['longitude'])):

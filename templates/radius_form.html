@@ -1,9 +1,10 @@
-{% extends "base.html" %}
-    {% block bodies %}
-        <form action="/results" method="post">
-                    how many degrees latitude from current location<br>
-                    <input type="text" name="latitude"><br>
-                <input type ="text" name="longitude">
-                    <input type = "submit" value="submit">
-         </form>
-    {% endblock %}
+{% extends "base.html" %} {% block body %}
+<form action="/results" method="post">
+  <h6>how many degrees latitude from current location</h6>
+  <br />
+  <input type="text" name="latitude" /><br />
+  <input type="text" name="longitude" /> <br />
+  <br />
+  <input class="btn btn-primary" type="submit" value="Submit" />
+</form>
+{% endblock %}

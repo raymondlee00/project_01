@@ -10,7 +10,7 @@ def location():
         reqbuilder = 'https://get.geojs.io/v1/ip/geo/' + my_ip + '.json'
         loc_req = requests.get(reqbuilder)
         loc_data = loc_req.json()
-    except:
+    except: #todo: make it so that failover data is stored in databse
         loc_data = {'longitude': '-73.9267', 'city': 'Brooklyn', 'timezone': 'America/New_York', 'accuracy': 20,
                     'asn': 21704, 'region': 'New York', 'organization_name': 'New York City Board of Education',
                     'organization': 'AS21704 New York City Board of Education', 'country_code': 'US',
@@ -31,3 +31,5 @@ def getbackgroundmap(minlat, maxlat, minlong, maxlong):
 
 
 getbackgroundmap(5,5,5,5)
+
+#todo: add scraping of FAA site for callsign, then generate google search from plane make and model, then grab images
