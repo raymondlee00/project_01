@@ -30,5 +30,10 @@ updated .gitignore to ignore keys.txt
 jesseH -- 2019-11-19 08:30
 set up several things and showed group members how to manually install packages
 
+<<<<<<< HEAD
 rayL -- 2019-11-19 20:25
 worked on the basic layout for authentication system for other group members to build off up, especially Jesse since he needs a way to tell uniqueness of users; created a separate branch called login to not interfere with Jesse's plane code
+=======
+rayL -- 2019-11-19 20:24
+worked on the basic layout for authentication system for other group members to build off up, especially Jesse since he needs a way to tell uniqueness of users
+>>>>>>> login
