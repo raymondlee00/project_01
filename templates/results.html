@@ -1,16 +1,11 @@
 {% extends "base.html" %}
 {% block body %}
 
-{% if planes %}
 
-    {% for plane in planes %}
-        {{plane}}
-<br>
-    {% endfor %}
-{% endif %}
-{% if chart %}}
-    <div id="chart">
-       <embed type="image/svg+xml" src= {{ chart|safe }} />
+
+{% if map %}}
+    <div id="map">
+       <embed type="image/svg+xml" src= {{ map|safe }} />
     </div>
 {% endif %}
 
