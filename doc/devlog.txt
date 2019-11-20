@@ -29,3 +29,6 @@ rayL -- 2019-11-19 09:23
 updated .gitignore to ignore keys.txt
 jesseH -- 2019-11-19 08:30
 set up several things and showed group members how to manually install packages
+
+rayL -- 2019-11-19 20:24
+worked on the basic layout for authentication system for other group members to build off up, especially Jesse since he needs a way to tell uniqueness of users
