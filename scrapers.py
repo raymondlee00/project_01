@@ -41,7 +41,7 @@ def getbackgroundmap(minlat, maxlat, minlong, maxlong, mylat, mylong,planes):
 
     reqbuilder += "&"
     reqbuilder += "app_id=" + app_id[:-1] + "&app_code=" + app_code
-    print(reqbuilder)
+    return(reqbuilder)
 
 
 
