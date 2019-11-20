@@ -3,9 +3,10 @@
 
 
 
-{% if map %}}
+{% if map %}
     <div id="map">
-       <embed type="image/svg+xml" src= {{ map|safe }} />
+       <!--<embed type="image/svg+xml" src= {{ map|safe }} /> -->
+        <img src ={{map}}>
     </div>
 {% endif %}
 
