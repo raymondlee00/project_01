@@ -89,13 +89,15 @@ def showPlanes():
         mylong = float(myloc['longitude'])
         planes = planeswithin(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude, False)
         print(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude)
-        chart = pygal.XY(yrange=(mylat - latitude, mylat + latitude), xrange=(mylong - longitude, mylong + longitude))
+        chart = pygal.XY()#yrange=(mylat - latitude, mylat + latitude), xrange=(mylong - longitude, mylong + longitude))
         chart.title = 'Planes near you'
 
         for plane in planes:
+           # print(plane)
             try:
-                templist = [(float(plane[1]), (float(plane[0])))]
-                chart.add('callsign:' + plane[6], templist)
+                templist = [(float(plane[6]), (float(plane[5])))]
+            #    print(templist)
+                chart.add('callsign:' + plane[1], templist)
             except:
                 print("blank")
         #Todo: your location indicator
