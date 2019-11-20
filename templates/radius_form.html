@@ -2,6 +2,10 @@
 <form action="/results" method="post">
   <h6>how many degrees latitude from current location</h6>
   <br />
+  {% if err %}
+  {{err}}
+  <br>
+  {% endif %}
   <input type="text" name="latitude" /><br />
   <input type="text" name="longitude" /> <br />
   <br />

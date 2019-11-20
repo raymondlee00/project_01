@@ -19,7 +19,7 @@ def location():
 
     return (loc_data)
 
-
+#todo: make system to check if too many points, and auto retry with lower amount
 def getmap(mylat, mylong,planes):
     app_id = None
     app_code = None

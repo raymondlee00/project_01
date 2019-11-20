@@ -81,15 +81,19 @@ def showPlanes():
     if 'user' in session: #checks that a user is logged into a session
         latitude = float(request.form.get("latitude"))
         longitude = float(request.form.get("longitude"))
-        print(longitude)
-        print(latitude)
-        myloc = location()
-        mylat = float(myloc['latitude'])
-        mylong = float(myloc['longitude'])
-        planes = planeswithin(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude, False)
-        print(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude)
-       # getmap(mylat,mylong,planes)
-        return render_template('results.html',  map = getmap(mylat,mylong,planes))
+        if(latitude > 1 or longitude > 1):
+            flash("maximum value is 1")
+        else:
+            print(longitude)
+            print(latitude)
+            myloc = location()
+            mylat = float(myloc['latitude'])
+            mylong = float(myloc['longitude'])
+            planes = planeswithin(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude, False)
+            print(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude)
+           # getmap(mylat,mylong,planes)
+            return render_template('results.html',  map = getmap(mylat,mylong,planes))
+        return render_template('radius_form.html', err = "maximum value is 1")
     flash("You must log in first before you can view the results!")
     return redirect(url_for('home'))
 
