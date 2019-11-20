@@ -92,7 +92,7 @@ def showPlanes():
             planes = planeswithin(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude, False)
             print(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude)
            # getmap(mylat,mylong,planes)
-            return render_template('results.html',  map = getmap(mylat,mylong,planes))
+            return render_template('results.html',  map = getmap(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude, mylat,mylong,planes))
         return render_template('radius_form.html', err = "maximum value is 1")
     flash("You must log in first before you can view the results!")
     return redirect(url_for('home'))

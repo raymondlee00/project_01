@@ -20,13 +20,14 @@ def location():
     return (loc_data)
 
 #todo: make system to check if too many points, and auto retry with lower amount
-def getmap(mylat, mylong,planes):
+def getmap(minlat, maxlat, minlong, maxlong, mylat, mylong,planes):
     app_id = None
     app_code = None
     with open('keys.txt') as file:
         app_id = file.readline()
         app_code= file.readline()
     reqbuilder = "https://image.maps.api.here.com/mia/1.6/mapview?"
+    #reqbuilder += ("bbox=" + str(maxlat) + "%2C" + str(maxlong) + "%2C" + str(minlat) + "%2C" + str(minlong) + "&")
     reqbuilder += ("w=700&h=800&")
     reqbuilder += ("c=" + str(mylat) + "%2C" + str(mylong) + "&")
     reqbuilder += ("u=" + str(1000) + "&")
