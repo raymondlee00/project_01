@@ -1,7 +1,7 @@
 from flask import Flask, render_template, flash, redirect, url_for, request, session
 import os #for generating a secret key
 from apitesting import planeswithin
-from scrapers import location
+from scrapers import location,getmap
 import pygal
 import numpy as np
 import pandas as pd
@@ -88,24 +88,8 @@ def showPlanes():
         mylong = float(myloc['longitude'])
         planes = planeswithin(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude, False)
         print(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude)
-        chart = pygal.XY()#yrange=(mylat - latitude, mylat + latitude), xrange=(mylong - longitude, mylong + longitude))
-        chart.title = 'Planes near you'
-
-        for plane in planes:
-           # print(plane)
-            try:
-                templist = [(float(plane[6]), (float(plane[5])))]
-            #    print(templist)
-                chart.add('callsign:' + plane[1], templist)
-            except:
-                print("blank")
-        #Todo: your location indicator
-        print((mylat, mylong - longitude ), (mylat, mylong + longitude))
-        #chart.add('you', [(mylat, mylong - longitude ), (mylat, mylong + longitude )])
-        print((mylat - latitude , mylong), (mylat + latitude, mylong))
-    #  chart.add('you', [(mylat - latitude, mylong), (mylat + latitude, mylong)])
-        chart = chart.render_data_uri()
-        return render_template('results.html', planes = planes, chart = chart)
+       # getmap(mylat,mylong,planes)
+        return render_template('results.html',  map = getmap(mylat,mylong,planes))
     flash("You must log in first before you can view the results!")
     return redirect(url_for('home'))
 

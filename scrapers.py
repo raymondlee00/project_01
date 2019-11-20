@@ -20,14 +20,13 @@ def location():
     return (loc_data)
 
 
-def getbackgroundmap(minlat, maxlat, minlong, maxlong, mylat, mylong,planes):
+def getmap(mylat, mylong,planes):
     app_id = None
     app_code = None
     with open('keys.txt') as file:
         app_id = file.readline()
         app_code= file.readline()
     reqbuilder = "https://image.maps.api.here.com/mia/1.6/mapview?"
-    reqbuilder += ("bbox=" + str(maxlat) + "%2C" + str(maxlong) + "%2C" + str(minlat) + "%2C" + str(minlong) + "&")
     reqbuilder += ("w=700&h=800&")
     reqbuilder += ("c=" + str(mylat) + "%2C" + str(mylong) + "&")
     reqbuilder += ("u=" + str(1000) + "&")
@@ -46,6 +45,6 @@ def getbackgroundmap(minlat, maxlat, minlong, maxlong, mylat, mylong,planes):
 
 
 
-getbackgroundmap(39.7263, 41.7263, -74.9818, -72.9818, 40.6263, -73.9818, planeswithin(39.7263, 41.7263, -74.9818, -72.9818))
+#print(getmap(40.6263, -73.9818, planeswithin(39.7263, 41.7263, -74.9818, -72.9818)))
 
 #todo: add scraping of FAA site for callsign, then generate google search from plane make and model, then grab images
