@@ -1,5 +1,10 @@
 import requests
 from apitesting import planeswithin
+import csv
+import shutil
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 
 # geolocation stuff goes here
 # todo:reconnect this when finished testing
@@ -49,3 +54,42 @@ def getmap(minlat, maxlat, minlong, maxlong, mylat, mylong,planes):
 #print(getmap(40.6263, -73.9818, planeswithin(39.7263, 41.7263, -74.9818, -72.9818)))
 
 #todo: add scraping of FAA site for callsign, then generate google search from plane make and model, then grab images
+def downloadmap(minlat, maxlat, minlong, maxlong, mylat, mylong):
+    app_id = None
+    app_code = None
+    with open('keys.txt') as file:
+        app_id = file.readline()
+        app_code= file.readline()
+    reqbuilder = "https://image.maps.api.here.com/mia/1.6/mapview?"
+    reqbuilder += ("bbox=" + str(maxlat) + "%2C" + str(maxlong) + "%2C" + str(minlat) + "%2C" + str(minlong) + "&")
+    reqbuilder += ("w=700&h=800&")
+    reqbuilder += ("c=" + str(mylat) + "%2C" + str(mylong) + "&")
+    reqbuilder += ("u=" + str(1000) + "&")
+    reqbuilder += "&"
+    reqbuilder += "app_id=" + app_id[:-1] + "&app_code=" + app_code
+    imghold = requests.get(reqbuilder, allow_redirects=True)
+    open('map.jpeg', 'wb').write(imghold.content)
+
+
+
+def graphmaker(minlat, maxlat, minlong, maxlong, mylat, mylong, planes):
+    holdplanes = planeswithin(39.7263, 41.7263, -74.9818, -72.9818)
+    with open("temp.txt", mode="w+") as file:
+        fieldnames = ['latitude', 'longitude']
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+        writer.writeheader()
+        for plane in holdplanes:
+            writer.writerow({'latitude': plane[6], 'longitude': plane[5]})
+    df = pd.read_csv('temp.txt')
+    df.head()
+    BBox = (df.longitude.min(),   df.longitude.max(), df.latitude.min(), df.latitude.max())
+    downloadmap(minlat, maxlat, minlong, maxlong, mylat, mylong)
+    magic = plt.imread("map.jpeg")
+    fig, ax = plt.subplots(figsize=(8, 7))
+    ax.scatter(df.longitude, df.latitude, zorder=1, alpha=0.2, c='b', s=10)
+    ax.set_title('Plotting Spatial Data on your Map')
+    ax.set_xlim(BBox[0], BBox[1])
+    ax.set_ylim(BBox[2], BBox[3])
+    ax.imshow(magic, zorder=0, extent=BBox, aspect='equal')
+
+graphmaker(39.7263, 41.7263, -74.9818, -72.9818, 40.6263, -73.9818, planeswithin(39.7263, 41.7263, -74.9818, -72.9818))
