@@ -39,3 +39,8 @@ worked on the basic layout for authentication system for other group members to 
 >>>>>>> login
 TanzimE--- 2019-11-20 2:28AM
 made database with the necessary functions teammates asked fore, working on an update function and how to incorporate dict datatype there
+
+rayL --2019-11-21
+This piece of text was really enlightening.
+1. There is no I in team. Only the first person plural should be used, never first person singular
+2. Programming is thought of to be a very solitary thing to do, yet it is unironically requires a lot more teamwork than expected for programmers to churn out something awe-inspiring
