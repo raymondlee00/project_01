@@ -37,10 +37,20 @@ worked on the basic layout for authentication system for other group members to 
 rayL -- 2019-11-19 20:24
 worked on the basic layout for authentication system for other group members to build off up, especially Jesse since he needs a way to tell uniqueness of users
 >>>>>>> login
-TanzimE--- 2019-11-20 2:28AM
+TanzimE--- 2019-11-20 02:28
 made database with the necessary functions teammates asked fore, working on an update function and how to incorporate dict datatype there
 
-rayL --2019-11-21
+rayL --2019-11-21 03:21
 This piece of text was really enlightening.
 1. There is no I in team. Only the first person plural should be used, never first person singular
 2. Programming is thought of to be a very solitary thing to do, yet it is unironically requires a lot more teamwork than expected for programmers to churn out something awe-inspiring
+
+rayL --2019-11-22 04:12
+updated the README.md with description and instructions to install
+
+rayL --2019-11-22 0418
+updated the design doc with changes:
+the user will now have to input the radius of querying for nearby planes, instead of the +/- variance of latitude and longitude that makes it easier for the API to process but more complex for the user. Overall improving UX
+the user will now be able to interact with the map that is generated after they search for nearby planes. Plot points on the graph of the generated map will lead to a separate route that shows more information about that flight: current latitude and longitude, flight time, altitude, temperature in its vicinity, etc.
+
+
