@@ -44,3 +44,6 @@ rayL --2019-11-21
 This piece of text was really enlightening.
 1. There is no I in team. Only the first person plural should be used, never first person singular
 2. Programming is thought of to be a very solitary thing to do, yet it is unironically requires a lot more teamwork than expected for programmers to churn out something awe-inspiring
+
+rayL --2019-11-22
+updated the README.md with description and instructions to install
