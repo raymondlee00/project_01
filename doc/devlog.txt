@@ -30,13 +30,10 @@ updated .gitignore to ignore keys.txt
 jesseH -- 2019-11-19 08:30
 set up several things and showed group members how to manually install packages
 
-<<<<<<< HEAD
 rayL -- 2019-11-19 20:25
 worked on the basic layout for authentication system for other group members to build off up, especially Jesse since he needs a way to tell uniqueness of users; created a separate branch called login to not interfere with Jesse's plane code
-=======
 rayL -- 2019-11-19 20:24
 worked on the basic layout for authentication system for other group members to build off up, especially Jesse since he needs a way to tell uniqueness of users
->>>>>>> login
 TanzimE--- 2019-11-20 02:28
 made database with the necessary functions teammates asked fore, working on an update function and how to incorporate dict datatype there
 
@@ -48,9 +45,14 @@ This piece of text was really enlightening.
 rayL --2019-11-22 04:12
 updated the README.md with description and instructions to install
 
-rayL --2019-11-22 0418
+rayL --2019-11-22 04:18
 updated the design doc with changes:
 the user will now have to input the radius of querying for nearby planes, instead of the +/- variance of latitude and longitude that makes it easier for the API to process but more complex for the user. Overall improving UX
 the user will now be able to interact with the map that is generated after they search for nearby planes. Plot points on the graph of the generated map will lead to a separate route that shows more information about that flight: current latitude and longitude, flight time, altitude, temperature in its vicinity, etc.
 
+vishwaaS -2019-11-22 08:34
+added navbar to the base.html
+
+rayL --2019-11-22 11:31
+added a navbar element, which an account dropdown with logout button
 
