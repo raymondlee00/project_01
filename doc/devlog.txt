@@ -56,3 +56,6 @@ added navbar to the base.html
 rayL --2019-11-22 11:31
 added a navbar element, which an account dropdown with logout button
 
+
+rayL -- 2019-11-22 13:18
+updated the vsco-logo to be transparent
