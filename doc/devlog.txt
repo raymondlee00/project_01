@@ -1,4 +1,4 @@
-rayL -- 2019-11-14 23:24
+oprayL -- 2019-11-14 23:24
 Created devlog and doc folder
 
 rayL -- 2019-11-15 00:13
@@ -30,10 +30,11 @@ updated .gitignore to ignore keys.txt
 jesseH -- 2019-11-19 08:30
 set up several things and showed group members how to manually install packages
 
-rayL -- 2019-11-19 20:25
+rayL,vishwaaS -- 2019-11-19 20:25
 worked on the basic layout for authentication system for other group members to build off up, especially Jesse since he needs a way to tell uniqueness of users; created a separate branch called login to not interfere with Jesse's plane code
-rayL -- 2019-11-19 20:24
+rayL,vishwaaS -- 2019-11-19 20:24
 worked on the basic layout for authentication system for other group members to build off up, especially Jesse since he needs a way to tell uniqueness of users
+
 TanzimE--- 2019-11-20 02:28
 made database with the necessary functions teammates asked fore, working on an update function and how to incorporate dict datatype there
 
@@ -53,12 +54,12 @@ the user will now be able to interact with the map that is generated after they 
 vishwaaS -2019-11-22 08:34
 added navbar to the base.html
 
+vishwaaS -2019-11-22 08:39
+added navbar to all pages -- can't do other bootstrap since routes.py is broken
+
+
 rayL --2019-11-22 11:31
 added a navbar element, which an account dropdown with logout button
 
-
 rayL -- 2019-11-22 13:18
 updated the vsco-logo to be transparent
-
-vishwaaS -- 2019-11-24 15:58
-nav bar added to all pages 
