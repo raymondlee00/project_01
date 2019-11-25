@@ -45,7 +45,8 @@
           atmosphere: true,
           center: [0, 0],
           zoom: 2.5,
-          zooming: false
+          zooming: false,
+          sky: true,
         };
         var earth = new WE.map("earth_div", options);
         WE.tileLayer("http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.jpg", {
@@ -142,18 +143,26 @@
             anywhere else on this flat rock. Onwards and upwards!
           </p>
           <a
-            class="btn btn-dark btn-lg"
-            href="/picker"
-            role="button"
-            style="color: white;"
-            >Get Started</a
-          >
+        class="btn btn-dark btn-lg"
+        href="/radiusform"
+        role="button"
+        style="color: white;"
+        >Use Your Current Location</a
+      >
+
+      <a
+        class="btn btn-dark btn-lg"
+        href="/picker"
+        role="button"
+        style="color: white;"
+        >Use A Custom Location</a
+      >
         </div>
         <div
           class="jumbotron"
-          style="background: url(../static/earth-background.png);
+          style="background: black;
         background-position: center;
-        background-size: auto 100%;
+        background-size: 100% 100%;
         background-repeat: no-repeat; 
         margin-bottom: 0px;
         border-radius: 0px;"
@@ -162,6 +171,16 @@
           <br />
           <div id="earth_div" style="width: 50%; height: 450px;"></div>
         </div>
+        <!-- <div
+          class="jumbotron"
+          style="background: url(../static/earth-background.png);
+        background-position: center;
+        background-size: 100% 400px;
+        background-repeat: no-repeat; 
+        margin-bottom: 0px;
+        border-radius: 0px;"
+        >
+        </div> -->
       </center>
     </body>
 
