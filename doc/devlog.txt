@@ -71,3 +71,6 @@ added sliders to the radius form as a more fitting HTML element than in-line tex
 
 rayL -- 2019-11-24 21:00
 added plane favicon
+
+rayL -- 2019-11-25 09:07
+11-25-2019 09:07
