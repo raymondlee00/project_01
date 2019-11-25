@@ -41,10 +41,16 @@
     <script src="http://www.webglearth.com/v2/api.js"></script>
     <script>
       function initialize() {
-        var earth = new WE.map('earth_div');
-        WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-          attribution: '© OpenStreetMap contributors'
+        var earth = new WE.map("earth_div");
+        WE.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: "© OpenStreetMap contributors"
         }).addTo(earth);
+
+        //Print coordinates of the mouse
+        earth.on("mousemove", function(e) {
+          document.getElementById("coords").innerHTML =
+            "Latitude: " + e.latlng.lat + ", Longitude: " + e.latlng.lng;
+        });
       }
     </script>
   </head>
@@ -124,7 +130,8 @@
         >
       </div>
       <center>
-        <div id="earth_div" style="width: 50%;"></div>
+        <div id="coords"></div>
+        <div id="earth_div" style="width: 50%; height: 450px;"></div>
       </center>
     </body>
 
