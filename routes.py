@@ -76,22 +76,24 @@ def logout():
     flash("You are already logged out.")
     return redirect(url_for('home'))
 
-@app.route('/results', methods=['GET', 'POST'])
+@app.route('/results', methods=['GET', 'POST']) # somehow get works but post doesn't ;(
 def showPlanes():
     if 'user' in session: #checks that a user is logged into a session
-        latitudeoffst = float(request.form.get("latitude")) #latitude offset
-        longitudeoffst = float(request.form.get("longitude")) #longitude offset
-        if(latitudeoffst > 1 or longitudeoffst > 1):
+        latitude = float(request.form.get("latitude"))
+        longitude = float(request.form.get("longitude"))
+        if(latitude > 1 or longitude > 1):
             flash("maximum value is 1")
         else:
-            myloc = location() #current source of location for the results page, TODO:make this compatible w custom loc
-            mylat = float(myloc['latitude']) #it comes in from location() as a string
+            print(longitude)
+            print(latitude)
+            myloc = location()
+            mylat = float(myloc['latitude'])
             mylong = float(myloc['longitude'])
-            planes = planeswithin(mylat - latitudeoffst, mylat + latitudeoffst, mylong - longitudeoffst, mylong + longitudeoffst, False) # planes within a bounding box around given location
-            print(mylat - latitudeoffst, mylat + latitudeoffst, mylong - longitudeoffst, mylong + longitudeoffst)
+            planes = planeswithin(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude, False)
+            print(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude)
            # getmap(mylat,mylong,planes)
-            return render_template('results.html',  map = getmap(mylat - latitudeoffst, mylat + latitudeoffst, mylong - longitudeoffst, mylong + longitudeoffst, mylat,mylong,planes))
-        return render_template('radius_form.html', err = "maximum value is 1") #rejecting invalid values
+            return render_template('results.html',  map = getmap(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude, mylat,mylong,planes))
+        return render_template('radius_form.html', err = "maximum value is 1")
     flash("You must log in first before you can view the results!")
     return redirect(url_for('home'))
 
@@ -99,6 +101,13 @@ def showPlanes():
 def radiusForm():
     if 'user' in session: #checks that a user is logged into a session
         return render_template("radius_form.html")
+    flash("You must log in first before you can access the radius form!")
+    return redirect(url_for('home'))
+
+@app.route('/radiusform', methods=['GET', 'POST'])
+def picker():
+    if 'user' in session: #checks that a user is logged into a session
+        return render_template("picker.html")
     flash("You must log in first before you can access the radius form!")
     return redirect(url_for('home'))
 
