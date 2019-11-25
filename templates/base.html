@@ -41,7 +41,12 @@
     <script src="http://www.webglearth.com/v2/api.js"></script>
     <script>
       function initialize() {
-        var options = { atmosphere: true, center: [0, 0], zoom: 2.5 , zooming: false};
+        var options = {
+          atmosphere: true,
+          center: [0, 0],
+          zoom: 2.5,
+          zooming: false
+        };
         var earth = new WE.map("earth_div", options);
         WE.tileLayer("http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.jpg", {
           minZoom: 0,
@@ -127,7 +132,7 @@
       <center>
         <div
           class="jumbotron"
-          style="background: rgb(0, 0, 0); text-align: center; color: white; margin-bottom: 0px;"
+          style="background: rgb(0, 0, 0); text-align: center; color: white; margin-bottom: 0px; border-radius: 0px;"
         >
           <h1 class="display-4">Welcome {{ username }}</h1>
           <p class="lead">
@@ -149,9 +154,11 @@
           style="background: url(../static/earth-background.png);
         background-position: center;
         background-size: auto 100%;
-        background-repeat: no-repeat; margin-bottom: 0px;"
+        background-repeat: no-repeat; 
+        margin-bottom: 0px;
+        border-radius: 0px;"
         >
-          <div id="coords" style="color: white;"></div>
+          <div id="coords" style="color: white;">Latitude: 0, Longitude: 0</div>
           <br />
           <div id="earth_div" style="width: 50%; height: 450px;"></div>
         </div>
