@@ -73,4 +73,4 @@ rayL -- 2019-11-24 21:00
 added plane favicon
 
 rayL -- 2019-11-25 09:07
-11-25-2019 09:07
+added flat earth using WebGL API with minimal JS
