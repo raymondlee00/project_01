@@ -12,7 +12,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
-      <img src="../logo.png" width="50" height="50" class="d-inline-block align-top" alt="logo">
+      <img src="../static/vsco-logo.png" width="50" height="50" class="d-inline-block align-top" alt="logo">
     </a>
     <a class="navbar-brand" href="#"> VSCOdeGIRLS    </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -35,12 +35,14 @@
     </div>
   </nav>
 
+  <center>
   {% set msgs = get_flashed_messages() %}
   {% for each in msgs %}
   <h4> {{ each }} </h4>
   {% endfor %}
 
   {% block form %}
+  </center>
 
   <div class="container">
     <div class="row">

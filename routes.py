@@ -27,7 +27,7 @@ file.close()
 def home():
     if 'user' in session: #checks that a user is logged into a session, render welcome page
         #print("Session username: " + session['user'])
-        flash ("You are logged in.")
+        # flash ("You are logged in.") # for testing purposes
         print(session['user'])
         return render_template("base.html", username = str(session['user']))
 

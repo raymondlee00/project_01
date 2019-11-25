@@ -3,9 +3,9 @@
 } */
 
 nav {
-    background: linear-gradient(to right, #2980b9, #6dd5fa, #ffa2ef); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #2980b9, #6dd5fa); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-#skybluebackground {
+/* #skybluebackground {
     background-color: linear-gradient(to right, #2980b9, #6dd5fa);
-}
+} */
