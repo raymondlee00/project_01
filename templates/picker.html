@@ -1,20 +1,40 @@
 {% extends "base.html" %} {% block body %}
-
 <body onload="initialize()">
-  <div
-    class="jumbotron"
-    style="background: linear-gradient(to right, #2980b9, #6dd5fa); text-align: center;"
-  >
-    <a class="btn btn-primary btn-lg" href="/radiusform" role="button"
-      >Use Your Current Location</a
+  <br />
+  <br />
+  <center>
+    <div
+      class="jumbotron"
+      style="background: rgb(0, 0, 0); text-align: center; color: white; margin-bottom: 0px;"
     >
 
-    <a class="btn btn-primary btn-lg" href="/radiusform" role="button"
-      >Use A Custom Location</a
+      <a
+        class="btn btn-dark btn-lg"
+        href="/picker"
+        role="button"
+        style="color: white;"
+        >Use Your Current Location</a
+      >
+
+      <a
+        class="btn btn-dark btn-lg"
+        href="/picker"
+        role="button"
+        style="color: white;"
+        >Use A Custom Location</a
+      >
+
+    </div>
+    <div
+      class="jumbotron"
+      style="background: url(../static/earth-background.png);
+    background-position: center;
+    background-size: auto 100%;
+    background-repeat: no-repeat; margin-bottom: 0px;"
     >
-  </div>
-  <center>
-    <div id="earth_div" style="width: 50%; height: 450px;"></div>
+      
+      <div id="earth_div" style="width: 50%; height: 450px;"></div>
+    </div>
   </center>
 </body>
 
