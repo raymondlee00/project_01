@@ -104,6 +104,13 @@ def radiusForm():
     flash("You must log in first before you can access the radius form!")
     return redirect(url_for('home'))
 
+@app.route('/picker', methods=['GET', 'POST'])
+def picker():
+    if 'user' in session: #checks that a user is logged into a session
+        return render_template("picker.html")
+    flash("You must log in first before you can access the radius form!")
+    return redirect(url_for('home'))
+
 if __name__  == "__main__":
         app.debug = True
         app.run()

@@ -91,5 +91,5 @@ def graphmaker(minlat, maxlat, minlong, maxlong, mylat, mylong, planes):
     ax.set_xlim(BBox[0], BBox[1])
     ax.set_ylim(BBox[2], BBox[3])
     ax.imshow(magic, zorder=0, extent=BBox, aspect='equal')
-
+    fig.savefig('pointmap.png')
 graphmaker(39.7263, 41.7263, -74.9818, -72.9818, 40.6263, -73.9818, planeswithin(39.7263, 41.7263, -74.9818, -72.9818))

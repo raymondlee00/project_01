@@ -9,12 +9,16 @@
       How much deviance (in degrees) from current location would you like to
       search nearby planes?
     </h6>
+    {% if mylat and mylong %}
+    <h7> Your current latitude is {{mylat}}. Your current longitude is {{mylong}}.</h7>
+    {% endif %}
+
     <br />
     {% if err %} {{err}}
     <br />
     {% endif %}
     <p style="display:inline;">Deviance from latitude: ±<p id="latitudeInput" style="display:inline;">0.6</p><p>
-    
+
     <input
       name="latitude"
       type="range"
