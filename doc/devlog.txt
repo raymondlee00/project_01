@@ -80,3 +80,6 @@ added flat earth using WebGL API with minimal JS
 
 vishwaaS -- 2019-11-25 09:09
 finished routing and designing picker.html to allow user to decide whether they want to use their current location or a random location
+
+rayL, vishwaaS -- 2019-11-25 10:15
+changed style to something more cool and funky
