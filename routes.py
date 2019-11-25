@@ -76,24 +76,22 @@ def logout():
     flash("You are already logged out.")
     return redirect(url_for('home'))
 
-@app.route('/results', methods=['GET', 'POST']) # somehow get works but post doesn't ;(
+@app.route('/results', methods=['GET', 'POST'])
 def showPlanes():
     if 'user' in session: #checks that a user is logged into a session
-        latitude = float(request.form.get("latitude"))
-        longitude = float(request.form.get("longitude"))
-        if(latitude > 1 or longitude > 1):
+        latitudeoffst = float(request.form.get("latitude")) #latitude offset
+        longitudeoffst = float(request.form.get("longitude")) #longitude offset
+        if(latitudeoffst > 1 or longitudeoffst > 1):
             flash("maximum value is 1")
         else:
-            print(longitude)
-            print(latitude)
-            myloc = location()
-            mylat = float(myloc['latitude'])
+            myloc = location() #current source of location for the results page, TODO:make this compatible w custom loc
+            mylat = float(myloc['latitude']) #it comes in from location() as a string
             mylong = float(myloc['longitude'])
-            planes = planeswithin(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude, False)
-            print(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude)
+            planes = planeswithin(mylat - latitudeoffst, mylat + latitudeoffst, mylong - longitudeoffst, mylong + longitudeoffst, False) # planes within a bounding box around given location
+            print(mylat - latitudeoffst, mylat + latitudeoffst, mylong - longitudeoffst, mylong + longitudeoffst)
            # getmap(mylat,mylong,planes)
-            return render_template('results.html',  map = getmap(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude, mylat,mylong,planes))
-        return render_template('radius_form.html', err = "maximum value is 1")
+            return render_template('results.html',  map = getmap(mylat - latitudeoffst, mylat + latitudeoffst, mylong - longitudeoffst, mylong + longitudeoffst, mylat,mylong,planes))
+        return render_template('radius_form.html', err = "maximum value is 1") #rejecting invalid values
     flash("You must log in first before you can view the results!")
     return redirect(url_for('home'))
 
