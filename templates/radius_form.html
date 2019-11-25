@@ -1,14 +1,47 @@
 {% extends "base.html" %} {% block body %}
-<form action="/results" method="post">
-  <h6>how many degrees latitude from current location</h6>
-  <br />
-  {% if err %}
-  {{err}}
-  <br>
-  {% endif %}
-  <input type="text" name="latitude" /><br />
-  <input type="text" name="longitude" /> <br />
-  <br />
-  <input class="btn btn-primary" type="submit" value="Submit" />
-</form>
+<center>
+  <form action="/results" method="post" class="range-field my-4 w-25">
+    <h6>
+      How much deviance (in degrees) from current location would you like to
+      search nearby planes?
+    </h6>
+    <br />
+    {% if err %} {{err}}
+    <br />
+    {% endif %}
+    <p style="display:inline;">Deviance from latitude: ±<p id="latitudeInput" style="display:inline;">0.6</p><p>
+    
+    <input
+      name="latitude"
+      type="range"
+      class="custom-range"
+      id="customRange1"
+      min="0.1"
+      max="1"
+      step="0.1"
+      onchange="updateLatitudeInput(this.value);"
+    />
+    <p style="display:inline;">Deviance from longitude: ±<p id="longitudeInput" style="display:inline;">0.6</p><p>
+    <input
+      name="longitude"
+      type="range"
+      class="custom-range"
+      id="customRange1"
+      min="0.1"
+      max="1"
+      step="0.1"
+      onchange="updateLongitudeInput(this.value);"
+    /><br />
+    <br />
+    <input class="btn btn-primary" type="submit" value="Submit" />
+  </form>
+</center>
+<script>
+  function updateLatitudeInput(val) {
+    document.getElementById("latitudeInput").innerHTML = val;
+  }
+  function updateLongitudeInput(val) {
+    document.getElementById("longitudeInput").innerHTML = val;
+  }
+</script>
 {% endblock %}

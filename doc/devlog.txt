@@ -65,3 +65,6 @@ added a navbar element, which an account dropdown with logout button
 
 rayL -- 2019-11-22 13:18
 updated the vsco-logo to be transparent
+
+rayL -- 2019-11-24 19:31
+added sliders to the radius form as a more fitting HTML element than in-line text boxes
