@@ -68,3 +68,6 @@ updated the vsco-logo to be transparent
 
 rayL -- 2019-11-24 19:31
 added sliders to the radius form as a more fitting HTML element than in-line text boxes
+
+rayL -- 2019-11-24 21:00
+added plane favicon
