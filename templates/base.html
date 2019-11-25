@@ -41,7 +41,7 @@
     <script src="http://www.webglearth.com/v2/api.js"></script>
     <script>
       function initialize() {
-        var options = { atmosphere: true, center: [0, 0], zoom: 0 };
+        var options = { atmosphere: true, center: [0, 0], zoom: 2.5 , zooming: false};
         var earth = new WE.map("earth_div", options);
         WE.tileLayer("http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.jpg", {
           minZoom: 0,
