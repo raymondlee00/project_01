@@ -1,15 +1,19 @@
-{% extends "base.html" %}
-{% block body %}
+{% extends "base.html" %} {% block body %}
 
-
-
-{% if map %}
-<center>
+<body style="background: black; padding-bottom: 3%;">
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  {% if map %}
+  <center>
     <div id="map">
-       <!--<embed type="image/svg+xml" src= {{ map|safe }} /> -->
-        <img src ={{map}}>
+      <!--<embed type="image/svg+xml" src= {{ map|safe }} /> -->
+      <img src="{{map}}" />
     </div>
-    </center>
-{% endif %}
-
+  </center>
+  {% endif %}
+</body>
 {% endblock %}
