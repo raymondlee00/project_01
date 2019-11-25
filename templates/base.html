@@ -41,9 +41,12 @@
     <script src="http://www.webglearth.com/v2/api.js"></script>
     <script>
       function initialize() {
-        var earth = new WE.map("earth_div");
-        WE.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          attribution: "© OpenStreetMap contributors"
+        var options = { atmosphere: true, center: [0, 0], zoom: 0 };
+        var earth = new WE.map("earth_div", options);
+        WE.tileLayer("http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.jpg", {
+          minZoom: 0,
+          maxZoom: 5,
+          attribution: "NASA"
         }).addTo(earth);
 
         //Print coordinates of the mouse
@@ -54,14 +57,14 @@
       }
     </script>
   </head>
-  <body style="background: linear-gradient(to right, #2980b9, #6dd5fa);">
+  <body>
     <nav
-      class="navbar navbar-expand-lg navbar-light bg-light"
-      style="background: linear-gradient(to right, #2980b9, #6dd5fa, #ffffff);"
+      class="navbar navbar-expand-lg .bg-dark fixed-top"
+      style="background: rgb(39, 38, 38);"
     >
       <a class="navbar-brand" href="/">
         <img
-          src="static/VSCO-logo.png"
+          src="static/VSCO-logo-white.png"
           width="50"
           height="50"
           class="d-inline-block align-top"
@@ -69,9 +72,11 @@
           style="margin-left: 0px;"
         />
       </a>
-      <a class="navbar-brand" href="/">Flat Earth Bird Watchers</a>
+      <a class="navbar-brand" href="/" style="color: red;"
+        >Flat Earth Bird Watchers</a
+      >
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto" style="color: red;">
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
@@ -81,6 +86,7 @@
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
+              style="color: red;"
             >
               In The Air
             </a>
@@ -100,7 +106,7 @@
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
-              style="color: black;"
+              style="color: red;"
             >
               Account
             </a>
@@ -114,24 +120,38 @@
 
     {% block body %}
     <body onload="initialize()">
-      <div
-        class="jumbotron"
-        style="background: linear-gradient(to right, #2980b9, #6dd5fa); text-align: center;"
-      >
-        <h1 class="display-4">Welcome {{ username }}</h1>
-        <p class="lead">
-          We are the VSCOdeGirls and this is the Flat Earth Bird Watchers
-          project. As you can see below, we have a flat earth. Using our web
-          application, you can query for nearby planes around your location or
-          anywhere else on this flat rock. Onwards and upwards!
-        </p>
-        <a class="btn btn-primary btn-lg" href="/picker" role="button"
-          >Get Started</a
-        >
-      </div>
+      <br />
+      <br />
       <center>
-        <div id="coords"></div>
-        <div id="earth_div" style="width: 50%; height: 450px;"></div>
+        <div
+          class="jumbotron"
+          style="background: rgb(0, 0, 0); text-align: center; color: red; margin-bottom: 0px;"
+        >
+          <h1 class="display-4">Welcome {{ username }}</h1>
+          <p class="lead">
+            We are the VSCOdeGirls and this is the Flat Earth Bird Watchers
+            project. As you can see below, we have a flat earth. Using our web
+            application, you can query for nearby planes around your location or
+            anywhere else on this flat rock. Onwards and upwards!
+          </p>
+          <a
+            class="btn btn-dark btn-lg"
+            href="/radiusform"
+            role="button"
+            style="color: red;"
+            >Get Started</a
+          >
+        </div>
+        <div
+          class="jumbotron"
+          style="background: url(../static/earth-background.png); 
+        background-position: center; 
+        background-size: auto 100%; 
+        background-repeat: no-repeat; margin-bottom: 0px;"
+        >
+          <div id="coords" style="color: red;"></div>
+          <div id="earth_div" style="width: 50%; height: 450px;"></div>
+        </div>
       </center>
     </body>
 

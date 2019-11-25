@@ -72,5 +72,11 @@ added sliders to the radius form as a more fitting HTML element than in-line tex
 rayL -- 2019-11-24 21:00
 added plane favicon
 
+vishwaaS -- 2019-11-25 08:32
+updated radiusform.html to show user information that makes their experience better
+
+rayL -- 2019-11-25 09:07
+added flat earth using WebGL API with minimal JS
+
 vishwaaS -- 2019-11-25 09:09
 finished routing and designing picker.html to allow user to decide whether they want to use their current location or a random location

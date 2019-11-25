@@ -1,6 +1,10 @@
 {% extends "base.html" %} {% block body %}
+<body style="background: black">
+<br />
+<br />
+<br />
 <center>
-  <form action="/results" method="post" class="range-field my-4 w-25">
+  <form action="/results" method="post" class="range-field my-4 w-25" style="color: red;">
     <h6>
       How much deviance (in degrees) from current location would you like to
       search nearby planes?
@@ -48,4 +52,5 @@
     document.getElementById("longitudeInput").innerHTML = val;
   }
 </script>
+</body>
 {% endblock %}
