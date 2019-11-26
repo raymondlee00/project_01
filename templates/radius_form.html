@@ -17,7 +17,7 @@
     {% if err %} {{err}}
     <br />
     {% endif %}
-    <p style="display:inline; font-family: 'Lato', sans-serif;">Deviance from latitude: ±<p id="latitudeInput" style="display:inline;">0.6</p></p>
+    <p style="display:inline; font-family: 'Lato', sans-serif;">Deviance from latitude: ± <p id="latitudeInput" style="display:inline;">0.6</p> degrees</p>
 
     <input
       name="latitude"
@@ -29,7 +29,7 @@
       step="0.1"
       onchange="updateLatitudeInput(this.value);"
     />
-    <p style="display:inline; font-family: 'Lato', sans-serif;">Deviance from longitude: ±<p id="longitudeInput" style="display:inline;">0.6</p><p>
+    <p style="display:inline; font-family: 'Lato', sans-serif;">Deviance from longitude: ± <p id="longitudeInput" style="display:inline;">0.6</p> degrees<p>
     <input
       name="longitude"
       type="range"
