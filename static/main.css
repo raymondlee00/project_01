@@ -18,6 +18,9 @@
 #authflashmsg {
   color: red;
   font-family: Lato, sans-serif;
+  font-size: 16px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
 
 #signuplink, #signinlink {
@@ -44,6 +47,8 @@
 
 #signincard {
   background-color: transparent;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
 
 #inputUsername, #inputPassword {

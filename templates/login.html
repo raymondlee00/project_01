@@ -70,14 +70,7 @@
   <br />
   <br />
   <br />
-  <center>
-  {% set msgs = get_flashed_messages() %}
-  {% for each in msgs %}
-  <h4 id="authflashmsg"> {{ each }} </h4>
-  {% endfor %}
-
   
-  </center>
 
   {% block form %}
   <div class="container">
@@ -97,6 +90,14 @@
                 <label for="inputUsername">Password: </label> &nbsp
                 <input type="password" id="inputPassword" name="pw" required="required">
               </div>
+              <center>
+                  {% set msgs = get_flashed_messages() %}
+                  {% for each in msgs %}
+                  <p id="authflashmsg"> {{ each }} </p>
+                  {% endfor %}
+                
+                  
+                  </center>
             </div>
             <button class="btn btn-lg btn-primary btn-block text-uppercase" id="loginbutton" type="submit" values="Submit">Sign in</button>
 
@@ -106,6 +107,7 @@
     </div>
   </div>
 </div>
+
 {% endblock %}
 <center>
   {% block registerbutton %}
