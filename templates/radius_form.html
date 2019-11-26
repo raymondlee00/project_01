@@ -1,6 +1,5 @@
 {% extends "base.html" %} {% block body %}
-<body style="background: black; padding-bottom: 16.2%; height: 5%;">
-<br />
+<body style="background: black; padding-bottom: 18%; height: 5%;">
 <br />
 <br />
 <br />
@@ -8,7 +7,7 @@
 <br />
 <center>
   <form action="/results" method="post" class="range-field my-4 w-25" style="color: white;">
-    <h6>
+    <h6 style="font-family: 'Lato', sans-serif;">
       How much deviance (in degrees) from current location would you like to
       search nearby planes?
     </h6>
@@ -20,7 +19,7 @@
     {% if err %} {{err}}
     <br />
     {% endif %}
-    <p style="display:inline;">Deviance from latitude: ±<p id="latitudeInput" style="display:inline;">0.6</p><p>
+    <p style="display:inline; font-family: 'Lato', sans-serif;">Deviance from latitude: ±<p id="latitudeInput" style="display:inline;">0.6</p></p>
 
     <input
       name="latitude"
@@ -32,7 +31,7 @@
       step="0.1"
       onchange="updateLatitudeInput(this.value);"
     />
-    <p style="display:inline;">Deviance from longitude: ±<p id="longitudeInput" style="display:inline;">0.6</p><p>
+    <p style="display:inline; font-family: 'Lato', sans-serif;">Deviance from longitude: ±<p id="longitudeInput" style="display:inline;">0.6</p><p>
     <input
       name="longitude"
       type="range"

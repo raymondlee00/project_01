@@ -1,0 +1,16 @@
+.dropdown-menu {
+  background-color: black;
+}
+
+.dropdown-menu > a {
+  color: white;
+}
+
+.dropdown-menu > a:hover {
+  background-color: red;
+  background-image: none;
+}
+
+#navbar {
+  background-color: rgb(39, 38, 38);
+}
