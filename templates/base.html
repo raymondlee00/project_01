@@ -16,6 +16,11 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
     />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC&display=swap"
+      rel="stylesheet"
+    />
     <!-- Bootstrap stuff -->
     <link
       rel="stylesheet"
@@ -41,7 +46,13 @@
     <script src="http://www.webglearth.com/v2/api.js"></script>
     <script>
       function initialize() {
-        var options = { atmosphere: true, center: [0, 0], zoom: 2.5 , zooming: false};
+        var options = {
+          atmosphere: true,
+          center: [0, 0],
+          zoom: 2.5,
+          zooming: false,
+          sky: true
+        };
         var earth = new WE.map("earth_div", options);
         WE.tileLayer("http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.jpg", {
           minZoom: 0,
@@ -59,44 +70,36 @@
   </head>
   <body>
     <nav
-      class="navbar navbar-expand-lg .bg-dark fixed-top"
-      style="background: rgb(39, 38, 38);"
+      class="navbar navbar-expand-md .bg-dark navbar-dark fixed-top"
+      style="background: rgb(39, 38, 38); margin-bottom: 0px; padding-bottom: 0px;"
     >
-      <a class="navbar-brand" href="/">
-        <img
-          src="static/VSCO-logo-white.png"
-          width="50"
-          height="50"
-          class="d-inline-block align-top"
-          alt="logo"
-          style="margin-left: 0px;"
-        />
-      </a>
-      <a class="navbar-brand" href="/" style="color: white;"
-        >Flat Earth Bird Watchers</a
-      >
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto" style="color: white;">
-          <li class="nav-item dropdown">
+      <ul style="list-style: none; padding-left: 0; padding-top: none; text-align: center;">
+        <li>
+          <a class="navbar-brand" href="/">
+            <img
+              src="static/fox-favicon.png"
+              width="100"
+              height="80"
+              class="d-inline-block align-top"
+              alt="logo"
+              style=""
+            />
+          </a>
+        </li>
+        <li>
+          <div class="navbar-header">
             <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-              style="color: white;"
+              class="navbar-brand"
+              href="/"
+              style="color: red; margin-top: 0px; padding-top:0px; font-family: 'Alegreya Sans SC'"
+              >BirdWatchers</a
             >
-              In The Air
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="../radiusform">Use Your IP</a>
-              <a class="dropdown-item" href="#">Custom Location</a>
-            </div>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
+          </div>
+        </li>
+      </ul>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav navbar-right" style="color: white;">
           <li class="nav-item dropdown" style="float: right;">
             <a
               class="nav-link dropdown-toggle"
@@ -106,12 +109,32 @@
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
-              style="color: white;"
+              style="color: white; font-family: 'Alegreya Sans SC';"
+            >
+              In The Air
+            </a>
+            <div class="dropdown-menu" id="intheair" aria-labelledby="navbarDropdown" style="font-family: 'Alegreya Sans SC';">
+              <a class="dropdown-item" id="iplocation" href="../radiusform" style="font-family: 'Alegreya Sans SC';">Use Your IP</a>
+              <a class="dropdown-item" id="customlocation" href="#" style="font-family: 'Alegreya Sans SC';">Custom Location</a>
+            </div>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              style="color: white; font-family: 'Alegreya Sans SC';"
             >
               Account
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-              <a class="dropdown-item" href="../logout">Log out</a>
+              <a class="dropdown-item" href="../logout" style="font-family: 'Alegreya Sans SC';">Log out</a>
             </div>
           </li>
         </ul>
@@ -125,8 +148,11 @@
       <center>
         <div
           class="jumbotron"
-          style="background: rgb(0, 0, 0); text-align: center; color: white; margin-bottom: 0px;"
+          style="background: rgb(0, 0, 0); text-align: center; color: white; margin-bottom: 0px; border-radius: 0px;"
         >
+          <br />
+          <br />
+
           <h1 class="display-4">Welcome {{ username }}</h1>
           <p class="lead">
             We are the VSCOdeGirls and this is the Flat Earth Bird Watchers
@@ -136,26 +162,51 @@
           </p>
           <a
             class="btn btn-dark btn-lg"
+            href="/radiusform"
+            role="button"
+            style="color: white;"
+            >Use Your Current Location</a
+          >
+
+          <a
+            class="btn btn-dark btn-lg"
             href="/picker"
             role="button"
             style="color: white;"
-            >Get Started</a
+            >Use A Custom Location</a
           >
         </div>
         <div
           class="jumbotron"
-          style="background: url(../static/earth-background.png);
+          style="background: black;
         background-position: center;
-        background-size: auto 100%;
-        background-repeat: no-repeat; margin-bottom: 0px;"
+        background-size: 100% 100%;
+        background-repeat: no-repeat; 
+        margin-bottom: 0px;
+        border-radius: 0px;"
         >
+<<<<<<< HEAD
           <div id="coords" style="color: white;"></div>
           <div
             padding-top: 150px;
             padding-bottom: 150px;
             >
+=======
+          <div id="coords" style="color: white;">Latitude: 0, Longitude: 0</div>
+          <br />
+>>>>>>> 1233cacc5995a2afd33f8c0c5e71b0d3572b6e41
           <div id="earth_div" style="width: 50%; height: 450px;"></div>
         </div>
+        <!-- <div
+          class="jumbotron"
+          style="background: url(../static/earth-background.png);
+        background-position: center;
+        background-size: 100% 400px;
+        background-repeat: no-repeat; 
+        margin-bottom: 0px;
+        border-radius: 0px;"
+        >
+        </div> -->
       </center>
     </body>
 

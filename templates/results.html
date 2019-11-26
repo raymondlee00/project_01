@@ -1,14 +1,31 @@
-{% extends "base.html" %}
-{% block body %}
+{% extends "base.html" %} {% block body %}
 
+<<<<<<< HEAD
 
 {% if map %}
 <center>
+=======
+<body style="background: black; padding-bottom: 3%;">
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  {% if map %}
+  <center>
+>>>>>>> 1233cacc5995a2afd33f8c0c5e71b0d3572b6e41
     <div id="map">
-       <!--<embed type="image/svg+xml" src= {{ map|safe }} /> -->
-        <img src ={{map}}>
+      <!--<embed type="image/svg+xml" src= {{ map|safe }} /> -->
+      <img src="{{map}}" />
     </div>
+<<<<<<< HEAD
     </center>
 {% endif %}
 
+=======
+  </center>
+  {% endif %}
+</body>
+>>>>>>> 1233cacc5995a2afd33f8c0c5e71b0d3572b6e41
 {% endblock %}
