@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Flat Earth Bird Watchers</title>
+    <title>Flat Earth BirdWatchers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     <link rel="icon" type="image/png" href="static/plane.png" />
@@ -47,7 +47,7 @@
           center: [0, 0],
           zoom: 2.4,
           zooming: false,
-          sky: false
+          sky: false,
         };
         var earth = new WE.map("earth_div", options);
         WE.tileLayer("http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.jpg", {

@@ -1,40 +1,51 @@
 {% extends "base.html" %} {% block body %}
-<body onload="initialize()">
+
+<script>
+  function locationPicker() {
+    var options = {
+      atmosphere: true,
+      center: [0, 0],
+      zoom: 2.4,
+      zooming: true,
+      sky: true,
+    };
+    var earth = new WE.map("earth_div", options);
+    WE.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      minZoom: 0,
+      maxZoom: 5,
+      attribution: "NASA"
+    }).addTo(earth);
+
+    //Print coordinates of the mouse
+    earth.on("click", function(e) {
+      document.getElementById("coords").innerHTML =
+        "Latitude: " + e.latlng.lat + ", Longitude: " + e.latlng.lng;
+    });
+  }
+</script>
+
+<body
+  onload="locationPicker()"
+  style="background: url(../static/black-sky.png);
+background-position: center;
+background-size: 100% 140%;
+background-repeat: no-repeat; margin-bottom: 100px; border-radius: 0px;"
+>
   <br />
   <br />
+  <br />
+  <br />
+  <br />
+
   <center>
     <div
-      class="jumbotron"
-      style="background: rgb(0, 0, 0); text-align: center; color: white; margin-bottom: 0px; border-radius: 0px;"
+      id="coords"
+      style="color: white;
+      padding-bottom: 50px; font-family: 'Lato', sans-serif;"
     >
-
-      <a
-        class="btn btn-dark btn-lg"
-        href="/radiusform"
-        role="button"
-        style="color: white;"
-        >Use Your Current Location</a
-      >
-
-      <a
-        class="btn btn-dark btn-lg"
-        href="/radiusform"
-        role="button"
-        style="color: white;"
-        >Use A Custom Location</a
-      >
-
+      Latitude: 0, Longitude: 0
     </div>
-    <div
-      class="jumbotron"
-      style="background: url(../static/earth-background.png);
-    background-position: center;
-    background-size: auto 100%;
-    background-repeat: no-repeat; margin-bottom: 0px; border-radius: 0px;"
-    >
-
-      <div id="earth_div" style="width: 50%; height: 450px;"></div>
-    </div>
+    <div id="earth_div" style="width: 100%; height: 100%;"></div>
   </center>
 </body>
 
