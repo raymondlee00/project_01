@@ -14,3 +14,39 @@
 #navbar {
   background-color: rgb(39, 38, 38);
 }
+
+#authflashmsg {
+  color: red;
+  font-family: Lato, sans-serif;
+}
+
+#signuplink, #signinlink {
+  color: black;
+}
+
+.card-body {
+  background-color: #1b1b1b;
+}
+
+#loginbutton {
+  border-radius: 0px; 
+  background-color: black;
+  border: none;
+  color: white;
+  font-family: Lato;
+}
+
+.form-label-group {
+  color: white;
+  font-family: Alegreya Sans SC;
+  font-size: 18px;
+}
+
+#signincard {
+  background-color: transparent;
+}
+
+#inputUsername, #inputPassword {
+  font-family: Lato;
+  font-size: 16px;
+}
