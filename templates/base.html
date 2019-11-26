@@ -47,7 +47,7 @@
           center: [0, 0],
           zoom: 2.5,
           zooming: true,
-          sky: true
+          sky: false
         };
         var earth = new WE.map("earth_div", options);
         WE.tileLayer("http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.jpg", {
@@ -169,22 +169,20 @@
             style="color: white; font-family: 'Lato', sans-serif;"
             >Use A Custom Location</a
           >
+
         </div>
         <div
           class="jumbotron"
-          style="background: url(../static/black-sky.png);
+          style="background: url(../static/earth-background.png);
         background-position: center;
         background-size: 100% 110%;
         background-repeat: no-repeat;
         margin-bottom: 0px;
         border-radius: 0px;"
         >
-          <div id="coords" style="color: white; font-family: 'Lato', sans-serif;">Latitude: 0, Longitude: 0</div>
-          <div
-            padding-top: 150px;
-            padding-bottom: 150px;
-            >
-          <br />
+          <div id="coords" style="color: white;
+          padding-bottom: 50px; font-family: 'Lato', sans-serif;">Latitude: 0, Longitude: 0</div>
+
           <div id="earth_div" style="width: 80%; height: 500px;"></div>
         </div>
         <!-- <div
