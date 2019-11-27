@@ -16,8 +16,10 @@
 
     //Print coordinates of the mouse
     earth.on("click", function(e) {
-      document.getElementById("coords").innerHTML =
-        "Latitude: " + e.latlng.lat + ", Longitude: " + e.latlng.lng;
+      document.getElementById("latitudepicker").value =
+        e.latlng.lat
+      document.getElementById("longitudepicker").value = 
+        e.latlng.lng
     });
   }
 </script>
@@ -36,21 +38,22 @@ background-repeat: no-repeat; margin-bottom: 100px; border-radius: 0px;"
   <br />
   
   <center>
-    <div
-      id="coords"
-      style="color: white;
-      padding-bottom: 50px; font-family: 'Lato', sans-serif;"
-    >
-      Latitude: 0, Longitude: 0
-    </div>
         <form action="/results" method="post" class="range-field my-4 w-25" style="color: white;">
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Latitude</label>
+            <input name="customlatitude" type="number" class="form-control" id="latitudepicker" placeholder="0">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Longitude</label>
+            <input name="customlongitude" type="number" class="form-control" id="longitudepicker" placeholder="0">
+          </div>
           <h6 style="font-family: 'Lato', sans-serif;">
             How much deviance (in degrees) from current location would you like to
             search nearby planes?
           </h6>
-          {% if mylat and mylong %}
+          <!-- {% if mylat and mylong %}
           <h7> Your current latitude is {{mylat}}. Your current longitude is {{mylong}}.</h7>
-          {% endif %}
+          {% endif %} -->
       
           <br />
           {% if err %} {{err}}
