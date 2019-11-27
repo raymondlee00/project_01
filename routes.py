@@ -1,7 +1,7 @@
 from flask import Flask, render_template, flash, redirect, url_for, request, session
 import os #for generating a secret key
 from apitesting import planeswithin
-from scrapers import location,getmap
+from scrapers import location, getmap
 import pygal
 import numpy as np
 import pandas as pd
@@ -82,11 +82,11 @@ def showPlanes():
         latitude = float(request.form.get("latitude"))
         longitude = float(request.form.get("longitude"))
         if(latitude > 1 or longitude > 1):
-            flash("maximum value is 1")
+            flash("Maximum value is 1 degree.")
         else:
             print(longitude)
             print(latitude)
-            myloc = location()
+            myloc = location()                                  
             mylat = float(myloc['latitude'])
             mylong = float(myloc['longitude'])
             planes = planeswithin(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude, False)
