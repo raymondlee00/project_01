@@ -70,13 +70,13 @@
   <br />
   <br />
   <br />
-  
+
 
   {% block form %}
-  <div class="container">
+  <div class="container" style="padding-top:75px; >
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto" id="signincard">
-        <div class="card card-signin my-5 border-0">
+        <div class="card card-signin my-5 border-radius ">
           <div class="card-body">
             <!-- <h5 class="card-title text-center">Sign In</h5> -->
             <form class="form-signin" action="/auth" method="POST"> <!-- POST b/c arguments in the address bar is a bad idea -->
@@ -95,8 +95,7 @@
                   {% for each in msgs %}
                   <p id="authflashmsg"> {{ each }} </p>
                   {% endfor %}
-                
-                  
+
                   </center>
             </div>
             <button class="btn btn-lg btn-primary btn-block text-uppercase" id="loginbutton" type="submit" values="Submit">Sign in</button>
