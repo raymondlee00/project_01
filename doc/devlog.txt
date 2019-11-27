@@ -83,3 +83,6 @@ finished routing and designing picker.html to allow user to decide whether they 
 
 rayL, vishwaaS -- 2019-11-25 10:15
 changed style to something more cool and funky
+
+vishwaaS -- 2019-11-27 8:35
+made style changes such as background changes and other UX changes for user friendly design (commits over last 2 days)
