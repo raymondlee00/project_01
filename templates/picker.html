@@ -37,9 +37,10 @@ background-repeat: no-repeat; margin-bottom: 100px; border-radius: 0px;"
   <br />
   <br />
   
-  <center>
-        <form action="/results" method="post" class="range-field my-4 w-25" style="color: white;">
-          <div style="width: 100%; height: 100%;">
+
+        <form action="/results" method="post" id="customlocform" class="range-field my-4 w-25" style="color: white;">
+          <center>
+          <div id="customlocwrapper">
           <div id="customlatlngpicker">
             <div class="form-group">
               <label for="exampleFormControlInput1">Latitude</label>
@@ -52,7 +53,7 @@ background-repeat: no-repeat; margin-bottom: 100px; border-radius: 0px;"
           </div>
           <div id="customlatlngdeviance">
           <h6 style="font-family: 'Lato', sans-serif;">
-            How much deviance (in degrees) from current location would you like to
+            How much deviance (in degrees) from custom location would you like to
             search nearby planes?
           </h6>
           <!-- {% if mylat and mylong %}
@@ -90,9 +91,11 @@ background-repeat: no-repeat; margin-bottom: 100px; border-radius: 0px;"
           <input class="btn btn-dark" type="submit" value="Submit" style="font-family: 'Alegreya Sans SC';" />
           </div>
           </div>
+          </center>
         </form>
+      <center>
     <div id="earth_div" style="width: 80%; height: 150%;"></div>
-  </center>
+    </center>
 </body>
 <script>
     function updateLatitudeInput(val) {

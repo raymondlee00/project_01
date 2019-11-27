@@ -42,7 +42,7 @@
     ></script>
     <script src="http://www.webglearth.com/v2/api.js"></script>
 </head>
-<body style="background: url(../static/earth-background.png); background-size: 100% 100%; background-repeat: no-repeat; padding-bottom: 21%; height: 5%;">
+<body style="background: url(../static/earth-background.png); background-size: auto 100%; background-repeat: no-repeat; padding-bottom: 21%; height: 5%; background-position-x: center;">
   <nav
   class="navbar navbar-toggleable navbar-expand-lg fixed-top .bg-dark navbar-dark"
   id="navbar"
@@ -61,7 +61,7 @@
         <a
           class="navbar-brand"
           href="/"
-          style="color: red; margin-left: 0px; padding-left:0px; font-family: 'Alegreya Sans SC'; font-size: 21px;"
+          style="color: #ff3434; margin-left: 0px; padding-left:0px; font-family: 'Alegreya Sans SC'; font-size: 21px;"
           >Flat Earth BirdWatchers</a
         >
       </div>
@@ -73,7 +73,7 @@
 
 
   {% block form %}
-  <div class="container" style="padding-top:75px; >
+  <div class="container" style="padding-top:75px;">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto" id="signincard">
         <div class="card card-signin my-5 border-radius ">
@@ -81,13 +81,13 @@
             <!-- <h5 class="card-title text-center">Sign In</h5> -->
             <form class="form-signin" action="/auth" method="POST"> <!-- POST b/c arguments in the address bar is a bad idea -->
               <div class="form-label-group">
-                <label for="inputUsername">Username: </label>&nbsp&nbsp
+                <label class="login-input" for="inputUsername">Username: </label>
                 <input type="text" id="inputUsername" name="user" required="required" autofocus>
 
               </div>
 
               <div class="form-label-group">
-                <label for="inputUsername">Password: </label> &nbsp
+                <label class="login-input" for="inputPassword">Password: </label>
                 <input type="password" id="inputPassword" name="pw" required="required">
               </div>
               <center>
