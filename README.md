@@ -1,5 +1,3 @@
----
-
 ## Flat Earth Bird Watchers by VSCOdeGirls
 
 ##### Roster/Roles
