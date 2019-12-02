@@ -7,7 +7,7 @@
       center: [0, 0],
       zoom: 2.4,
       zooming: true,
-      sky: true,
+      sky: false,
     };
     var earth = new WE.map("earth_div", options);
     WE.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -26,9 +26,9 @@
 
 <body
   onload="locationPicker()"
-  style="background: url(../static/black-sky.png);
+  style="background: url(../static/black-skies.png);
 background-position: center;
-background-size: auto 140%;
+background-size: 100% 100%;
 background-repeat: no-repeat; margin-bottom: 100px; border-radius: 0px;
 background-position-x: center;"
 >

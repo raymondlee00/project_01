@@ -41,7 +41,7 @@
 
 .form-label-group {
   color: white;
-  font-family: Alegreya Sans SC;
+  font-family: Lato;
   font-size: 19px;
 }
 
@@ -51,7 +51,7 @@
   padding-bottom: 0px;
 }
 
-.login-input {
+.login-input, .register-input {
   width: 120px;
 }
 
@@ -70,6 +70,7 @@
   width: 1200px;
   border: 1px solid black;
   overflow: hidden;
+  border: none;
 }
 
 #customlatlngpicker {
@@ -95,7 +96,7 @@
 }
 
 #homebackground {
-  background: url(./black-skies.png);
+  background: url(../static/black-skies.png);
   background-color: rgb(0, 0, 0, 0.5);
   background-position: center;
   background-size: 100% 110%;
@@ -105,11 +106,15 @@
 }
 
 #radius-form-body {
-  background-image: url(../static/earth-background.png);
-  background-size: auto 100%;
+  background-image: url(../static/black-skies.png);
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   margin-top: 8%;
   padding-bottom: 25%;
   height: 5%;
   background-position-x: center;
+}
+
+button:focus {
+  outline: none;
 }
