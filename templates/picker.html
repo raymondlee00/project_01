@@ -39,17 +39,17 @@ background-position-x: center;"
   <br />
   
 
-        <form action="/results" method="post" id="customlocform" class="range-field my-4 w-25" style="color: white;">
+        <form action="/pickerresults" method="post" id="customlocform" class="range-field my-4 w-25" style="color: white;">
           <center>
           <div id="customlocwrapper">
           <div id="customlatlngpicker">
             <div class="form-group">
               <label for="exampleFormControlInput1">Latitude</label>
-              <input name="customlatitude" type="number" class="form-control" id="latitudepicker" placeholder="0">
+              <input name="customlatitude" type="text" class="form-control" id="latitudepicker" placeholder="0">
             </div>
             <div class="form-group">
               <label for="exampleFormControlInput1">Longitude</label>
-              <input name="customlongitude" type="number" class="form-control" id="longitudepicker" placeholder="0">
+              <input name="customlongitude" type="text" class="form-control" id="longitudepicker" placeholder="0">
             </div>
           </div>
           <div id="customlatlngdeviance">
@@ -68,7 +68,7 @@ background-position-x: center;"
           <p style="display:inline; font-family: 'Lato', sans-serif;">Deviance from latitude: ± <p id="latitudeInput" style="display:inline;">0.6</p> degrees</p>
       
           <input
-            name="latitude"
+            name="latitudeDeviance"
             type="range"
             class="custom-range"
             id="customRange1"
@@ -79,7 +79,7 @@ background-position-x: center;"
           />
           <p style="display:inline; font-family: 'Lato', sans-serif;">Deviance from longitude: ± <p id="longitudeInput" style="display:inline;">0.6</p> degrees</p>
           <input
-            name="longitude"
+            name="longitudeDeviance"
             type="range"
             class="custom-range"
             id="customRange1"

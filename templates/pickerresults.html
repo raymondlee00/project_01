@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block body %}
+
+<body style="background: url(../static/black-skies.png);
+background-position: center;
+background-size: 100% 100%;
+background-repeat: no-repeat; margin-bottom: 100px; border-radius: 0px;
+background-position-x: center; padding-bottom: 5%;">
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  {% if map %}
+  <center>
+    <div id="map">
+      <!--<embed type="image/svg+xml" src= {{ map|safe }} /> -->
+      <img src="{{map}}" />
+    </div>
+  </center>
+  {% endif %}
+</body>
+{% endblock %}

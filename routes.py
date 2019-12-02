@@ -111,6 +111,22 @@ def picker():
     flash("You must log in first before you can access the radius form!")
     return redirect(url_for('home'))
 
+@app.route('/pickerresults', methods=['GET', 'POST'])
+def pickerResults():   
+
+    customlatitude = float(request.form.get("customlatitude").strip())
+    customlongitude = float(request.form.get("customlongitude").strip())
+    latitudeDeviance = float(request.form.get("latitudeDeviance").strip())
+    longitudeDeviance = float(request.form.get("longitudeDeviance").strip())
+    planes = planeswithin(customlatitude - latitudeDeviance, customlatitude + latitudeDeviance, customlongitude - longitudeDeviance, customlongitude + longitudeDeviance, False)
+    print(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude)
+    return render_template('pickerresults.html',  map = getmap(customlatitude - latitudeDeviance, customlatitude + latitudeDeviance, customlongitude - longitudeDeviance, customlongitude + longitudeDeviance, customlatitude, customlongitude, planes))
+    print(customlatitude)
+    print(customlongitude)
+    # if(latitude > 1 or longitude > 1):
+    #     flash("Maximum value is 1 degree.")
+    # return render_template("pickerresults.html", customlat = customlatitude, customlong = customlongitude)
+
 if __name__  == "__main__":
         app.debug = True
         app.run()
