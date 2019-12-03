@@ -18,7 +18,7 @@
     earth.on("click", function(e) {
       document.getElementById("latitudepicker").value =
         e.latlng.lat
-      document.getElementById("longitudepicker").value = 
+      document.getElementById("longitudepicker").value =
         e.latlng.lng
     });
   }
@@ -37,7 +37,9 @@ background-position-x: center;"
   <br />
   <br />
   <br />
-  
+
+
+
 
         <form action="/pickerresults" method="post" id="customlocform" class="range-field my-4 w-25" style="color: white;">
           <center>
@@ -60,13 +62,19 @@ background-position-x: center;"
           <!-- {% if mylat and mylong %}
           <h7> Your current latitude is {{mylat}}. Your current longitude is {{mylong}}.</h7>
           {% endif %} -->
-      
+
           <br />
           {% if err %} {{err}}
           <br />
           {% endif %}
+
+          <h7> Your current latitude is {{myLat}}.</h7> <br>
+          <h7>Your current longitude is {{myLong}}.</h7> <br>
+          <h7> Your updated latitude is {{newLat}}.</h7> <br>
+          <h7>Your updated longitude is {{newLong}}.</h7> <br>
+          <br>
           <p style="display:inline; font-family: 'Lato', sans-serif;">Deviance from latitude: ± <p id="latitudeInput" style="display:inline;">0.6</p> degrees</p>
-      
+
           <input
             name="latitudeDeviance"
             type="range"
