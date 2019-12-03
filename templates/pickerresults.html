@@ -1,24 +1,85 @@
-{% extends "base.html" %} {% block body %}
+{% extends "base.html" %} {% block head %}
+<style>
+  /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+  #map {
+    height: 100%;
+    margin-top: 10%
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+{% endblock %} {% block body %}
 
-<body style="background: url(../static/black-skies.png);
-background-position: center;
-background-size: 100% 100%;
-background-repeat: no-repeat; margin-bottom: 100px; border-radius: 0px;
-background-position-x: center; padding-bottom: 5%;">
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  {% if map %}
-  <center>
-    <div id="map">
-      <!--<embed type="image/svg+xml" src= {{ map|safe }} /> -->
-      <img src="{{map}}" />
-    </div>
-  </center>
-  {% endif %}
-</body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>Google Maps Multiple Markers</title>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu1EzhU-CqXyvDsB1ExpzcgJp1NaNA1qQ&callback=initMap"
+    ></script>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+             * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script type="text/javascript">
+      function initMap() {
+        var locations = {{ latlngArr }};
+        var bounds = new google.maps.LatLngBounds();
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 7,
+          center: new google.maps.LatLng({{ customLat }}, {{ customLong }}),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+
+        var marker, i;
+        for (i = 0; i < locations.length; i++) {
+          marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+            map: map
+          });
+
+          var myLatLng = new google.maps.LatLng(locations[i][0], locations[i][1]);
+
+          google.maps.event.addListener(
+            marker,
+            "click",
+            (function(marker, i) {
+              return function() {
+                infowindow.setContent("HI");
+                infowindow.open(map, marker);
+              };
+            })(marker, i)
+          );
+          bounds.extend(myLatLng);
+        }
+        map.fitBounds(bounds);
+      }
+    </script>
+  </body>
+</html>
 {% endblock %}
