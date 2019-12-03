@@ -86,7 +86,7 @@ def showPlanes():
         else:
             print(longitude)
             print(latitude)
-            myloc = location()                                  
+            myloc = location()
             mylat = float(myloc['latitude'])
             mylong = float(myloc['longitude'])
             planes = planeswithin(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude, False)
@@ -100,7 +100,10 @@ def showPlanes():
 @app.route('/radiusform', methods=['GET', 'POST'])
 def radiusForm():
     if 'user' in session: #checks that a user is logged into a session
-        return render_template("radius_form.html")
+        myloc = location()
+        mylat = float(myloc['latitude'])
+        mylong = float(myloc['longitude'])
+        return render_template("radius_form.html", myLat = mylat, myLong = mylong,)
     flash("You must log in first before you can access the radius form!")
     return redirect(url_for('home'))
 
@@ -112,7 +115,7 @@ def picker():
     return redirect(url_for('home'))
 
 @app.route('/pickerresults', methods=['GET', 'POST'])
-def pickerResults():   
+def pickerResults():
 
     customlatitude = float(request.form.get("customlatitude").strip())
     customlongitude = float(request.form.get("customlongitude").strip())
@@ -122,7 +125,7 @@ def pickerResults():
     # print(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude)
     print("latlngArr:{}".format(generateLatLngArr(planes)))
     return render_template('pickerresults.html',  latlngArr = generateLatLngArr(planes), customLat = customlatitude, customLong = customlongitude)
-    
+
     print(customlatitude)
     print(customlongitude)
     # if(latitude > 1 or longitude > 1):

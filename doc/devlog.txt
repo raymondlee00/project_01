@@ -89,3 +89,6 @@ made style changes such as background changes and other UX changes for user frie
 
 vishwaaS -- 2019-12-03 02:59
 fixed favicon and made some changes to styling
+
+vishwaaL -- 2019-12-03 08:35
+shows current lat and long to user on radius form page ; JS needs to be implemented
