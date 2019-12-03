@@ -92,7 +92,7 @@ def graphmaker(minlat, maxlat, minlong, maxlong, mylat, mylong, planes):
     ax.set_ylim(BBox[2], BBox[3])
     ax.imshow(magic, zorder=0, extent=BBox, aspect='equal')
     fig.savefig('pointmap.png')
-graphmaker(39.7263, 41.7263, -74.9818, -72.9818, 40.6263, -73.9818, planeswithin(39.7263, 41.7263, -74.9818, -72.9818))
+#graphmaker(39.7263, 41.7263, -74.9818, -72.9818, 40.6263, -73.9818, planeswithin(39.7263, 41.7263, -74.9818, -72.9818))
 
 # takes in an array of all the plane states and return an array of 
 def generateLatLngArr(statesArr):
@@ -103,3 +103,5 @@ def generateLatLngArr(statesArr):
         arr[1] = float(state[5])
         latlngArr.append(arr)
     return latlngArr
+
+
