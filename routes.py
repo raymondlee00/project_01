@@ -103,14 +103,17 @@ def radiusForm():
         myloc = location()
         mylat = float(myloc['latitude'])
         mylong = float(myloc['longitude'])
-        return render_template("radius_form.html", myLat = mylat, myLong = mylong,)
+        return render_template("radius_form.html", myLat = mylat, myLong = mylong)
     flash("You must log in first before you can access the radius form!")
     return redirect(url_for('home'))
 
 @app.route('/picker', methods=['GET', 'POST'])
 def picker():
     if 'user' in session: #checks that a user is logged into a session
-        return render_template("picker.html")
+        myloc = location()
+        mylat = float(myloc['latitude'])
+        mylong = float(myloc['longitude'])
+        return render_template("picker.html", myLat = mylat, myLong = mylong)
     flash("You must log in first before you can access the radius form!")
     return redirect(url_for('home'))
 
