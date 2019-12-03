@@ -69,7 +69,7 @@
             "click",
             (function(marker, i) {
               return function() {
-                infowindow.setContent("HI");
+                infowindow.setContent("<div style='float:left;'><img style='width: 100px; height: 100px;' src='https://www.telegraph.co.uk/content/dam/Travel/2018/January/white-plane-sky.jpg'></div><div style='float:right; padding: 10px;'><b>Title</b><br/>123 Address<br/> City,Country</div>");
                 infowindow.open(map, marker);
               };
             })(marker, i)
