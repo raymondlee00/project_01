@@ -48,34 +48,12 @@
         var locations = {{ latlngArr }};
         var bounds = new google.maps.LatLngBounds();
         var map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 8,
-          center: new google.maps.LatLng({{ myLat }}, {{ myLong }}),
+          zoom: 7,
+          center: new google.maps.LatLng({{ customLat }}, {{ customLong }}),
           mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
-        infoWindow = new google.maps.InfoWindow;
-
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('You are here.');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-
-        var locWindow = new google.maps.InfoWindow();
+        var infowindow = new google.maps.InfoWindow();
 
         var marker, i;
         for (i = 0; i < locations.length; i++) {
@@ -91,8 +69,8 @@
             "click",
             (function(marker, i) {
               return function() {
-                locWindow.setContent("HI");
-                locWindow.open(map, marker);
+                infowindow.setContent("HI");
+                infowindow.open(map, marker);
               };
             })(marker, i)
           );

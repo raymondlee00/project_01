@@ -1,7 +1,7 @@
 from flask import Flask, render_template, flash, redirect, url_for, request, session
 import os #for generating a secret key
 from apitesting import planeswithin
-from scrapers import location, getmap
+from scrapers import location, getmap, generateLatLngArr
 import pygal
 import numpy as np
 import pandas as pd
@@ -92,7 +92,7 @@ def showPlanes():
             planes = planeswithin(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude, False)
             print(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude)
            # getmap(mylat,mylong,planes)
-            return render_template('results.html',  map = getmap(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude, mylat,mylong,planes))
+            return render_template('results.html',  latlngArr = generateLatLngArr(planes), myLat = mylat, myLong = mylong, latDev = latitude, longDev = longitude)
         return render_template('radius_form.html', err = "maximum value is 1")
     flash("You must log in first before you can view the results!")
     return redirect(url_for('home'))
@@ -110,6 +110,24 @@ def picker():
         return render_template("picker.html")
     flash("You must log in first before you can access the radius form!")
     return redirect(url_for('home'))
+
+@app.route('/pickerresults', methods=['GET', 'POST'])
+def pickerResults():   
+
+    customlatitude = float(request.form.get("customlatitude").strip())
+    customlongitude = float(request.form.get("customlongitude").strip())
+    latitudeDeviance = float(request.form.get("latitudeDeviance").strip())
+    longitudeDeviance = float(request.form.get("longitudeDeviance").strip())
+    planes = planeswithin(customlatitude - latitudeDeviance, customlatitude + latitudeDeviance, customlongitude - longitudeDeviance, customlongitude + longitudeDeviance, False)
+    # print(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude)
+    print("latlngArr:{}".format(generateLatLngArr(planes)))
+    return render_template('pickerresults.html',  latlngArr = generateLatLngArr(planes), customLat = customlatitude, customLong = customlongitude)
+    
+    print(customlatitude)
+    print(customlongitude)
+    # if(latitude > 1 or longitude > 1):
+    #     flash("Maximum value is 1 degree.")
+    # return render_template("pickerresults.html", customlat = customlatitude, customlong = customlongitude)
 
 if __name__  == "__main__":
         app.debug = True
