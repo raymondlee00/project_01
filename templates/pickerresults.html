@@ -68,7 +68,7 @@
           });
 
           var myLatLng = new google.maps.LatLng(locations[i][0], locations[i][1]);
-          var imgHTML = String.format("<div style='float:left;'><img style='width: 100px; height: 100px;' src='https://www.telegraph.co.uk/content/dam/Travel/2018/January/white-plane-sky.jpg'></div><div style='float:right; padding: 10px;'><b>Latitude: {0}</b><br/><b>Longitude: {1}</b><br/><b>Plane Model: </b></div>", locations[i][0], locations[i][1]);
+          var imgHTML = String.format("<div style='float:left;'><img style='width: 100px; height: 100px;' src='https://www.telegraph.co.uk/content/dam/Travel/2018/January/white-plane-sky.jpg'></div><div style='float:right; padding: 10px;'><b>Latitude: {0}</b><br/><b>Longitude: {1}</b><br/></div>", locations[i][0], locations[i][1]);
           google.maps.event.addListener(
             marker,
             "click",
@@ -83,7 +83,8 @@
         }
         map.fitBounds(bounds);
         locWindow.setPosition(pos);
-        locWindow.setContent('Chosen location here.');
+        var noPlanesFound = locations.length == 0 ? ' No planes found ;(' : '';
+        locWindow.setContent('Chosen location here.' + noPlanesFound);
         locWindow.open(map);
         map.setCenter(pos);
       }

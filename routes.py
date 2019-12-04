@@ -120,9 +120,12 @@ def picker():
 
 @app.route('/pickerresults', methods=['GET', 'POST'])
 def pickerResults():
-
-    customlatitude = float(request.form.get("customlatitude").strip())
-    customlongitude = float(request.form.get("customlongitude").strip())
+    try:
+        customlatitude = float(request.form.get("customlatitude").strip())
+        customlongitude = float(request.form.get("customlongitude").strip())
+    except:
+        customlatitude = 0.0
+        customlongitude = 0.0
     latitudeDeviance = float(request.form.get("latitudeDeviance").strip())
     longitudeDeviance = float(request.form.get("longitudeDeviance").strip())
     planes = planeswithin(customlatitude - latitudeDeviance, customlatitude + latitudeDeviance, customlongitude - longitudeDeviance, customlongitude + longitudeDeviance, False)

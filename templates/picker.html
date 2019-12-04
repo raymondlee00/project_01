@@ -68,10 +68,8 @@ background-position-x: center;"
           <br />
           {% endif %}
 
-          <h7> Your current latitude is {{myLat}}.</h7> <br>
+          <h7>Your current latitude is {{myLat}}.</h7> <br>
           <h7>Your current longitude is {{myLong}}.</h7> <br>
-          <h7> Your updated latitude is {{newLat}}.</h7> <br>
-          <h7>Your updated longitude is {{newLong}}.</h7> <br>
           <br>
           <p style="display:inline; font-family: 'Lato', sans-serif;">Deviance from latitude: ± <p id="latitudeInput" style="display:inline;">0.6</p> degrees</p>
 
@@ -97,6 +95,11 @@ background-position-x: center;"
             onchange="updateLongitudeInput(this.value);"
           /><br />
           <br />
+          <h7>Maximum latitude of plane search is <h7 id="updatedMaxLat">{{ myLat }}</h7>.</h7> <br />
+    <h7>Minimum latitude of plane search is <h7 id="updatedMinLat">{{ myLat }}</h7>.</h7> <br />
+    <h7>Maximum longitude of plane search is <h7 id="updatedMaxLng">{{ myLong }}</h7>.</h7> <br />
+    <h7>Minimum longitude of plane search is <h7 id="updatedMinLng">{{ myLong }}</h7>.</h7> <br />
+          <br />
           <input class="btn btn-dark" type="submit" value="Submit" style="font-family: 'Alegreya Sans SC';" />
           </div>
           </div>
@@ -109,9 +112,13 @@ background-position-x: center;"
 <script>
     function updateLatitudeInput(val) {
       document.getElementById("latitudeInput").innerHTML = val;
+      document.getElementById("updatedMaxLat").innerHTML = {{ myLat }} + val;
+      document.getElementById("updatedMinLat").innerHTML = {{ myLat }} - val;
     }
     function updateLongitudeInput(val) {
       document.getElementById("longitudeInput").innerHTML = val;
+      document.getElementById("updatedMaxLng").innerHTML = {{ myLong }} + val;
+      document.getElementById("updatedMinLng").innerHTML = {{ myLong }} - val;
     }
   </script>
 {% endblock %}

@@ -3,17 +3,14 @@
 <center>
   <form action="/results" method="post" class="range-field my-4 w-25" style="color: white; padding-top: 1%;">
     
-    {% if myLat and myLong %}
-    <h7> Your current latitude is {{myLat}}.</h7> <br />
-    <h7>Your current longitude is {{myLong}}.</h7> <br />
-    <br />
-    {% endif %}
-    
     <h6 style="font-family: 'Lato', sans-serif;">
       How much deviance (in degrees) from current location would you like to
       search nearby planes?
     </h6>
-
+    {% if myLat and myLong %}
+    <h7> Your current latitude is {{myLat}}.</h7> <br />
+    <h7>Your current longitude is {{myLong}}.</h7> <br />
+    {% endif %}
     <br />
     {% if err %} {{err}}
     <br />
@@ -42,20 +39,32 @@
       onchange="updateLongitudeInput(this.value);"
     /><br />
     <br />
-    <h7>Your updated latitude is<h7 id="updatedLat"> {{ myLat }}</h7>.</h7> <br />
-    <h7>Your updated longitude is <h7 id="updatedLng"> {{ myLong }}</h7>.</h7> <br /> 
+    <h7>Maximum latitude of plane search is <h7 id="updatedMaxLat">{{ myLat }}</h7>.</h7> <br />
+    <h7>Minimum latitude of plane search is <h7 id="updatedMinLat">{{ myLat }}</h7>.</h7> <br />
+    <h7>Maximum longitude of plane search is <h7 id="updatedMaxLng">{{ myLong }}</h7>.</h7> <br />
+    <h7>Minimum longitude of plane search is <h7 id="updatedMinLng">{{ myLong }}</h7>.</h7> <br />
     <br />
+    <center>
+      {% set msgs = get_flashed_messages() %}
+      {% for each in msgs %}
+      <p id="authflashmsg"> {{ each }} </p>
+      {% endfor %}
+
+      </center>
+      <br />
     <input class="btn btn-dark" type="submit" value="Submit" style="font-family: 'Alegreya Sans SC';" />
   </form>
 </center>
 <script>
   function updateLatitudeInput(val) {
     document.getElementById("latitudeInput").innerHTML = val;
-    document.getElementById("updatedLat").innerHTML = {{ myLat }} - val;
+    document.getElementById("updatedMaxLat").innerHTML = {{ myLat }} + val;
+    document.getElementById("updatedMinLat").innerHTML = {{ myLat }} - val;
   }
   function updateLongitudeInput(val) {
     document.getElementById("longitudeInput").innerHTML = val;
-    document.getElementById("updatedLat").innerHTML = {{ myLong }} - val;
+    document.getElementById("updatedMaxLng").innerHTML = {{ myLong }} + val;
+    document.getElementById("updatedMinLng").innerHTML = {{ myLong }} - val;
   }
 </script>
 </body>

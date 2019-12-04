@@ -98,9 +98,13 @@ def graphmaker(minlat, maxlat, minlong, maxlong, mylat, mylong, planes):
 def generateLatLngArr(statesArr):
     latlngArr = []
     for state in statesArr:
-        arr = [0, 0]
-        arr[0] = float(state[6])
-        arr[1] = float(state[5])
+        arr = [0, 0, 0]
+        try:
+            arr[0] = float(state[6])
+            arr[1] = float(state[5])
+            print(state[1])
+        except IndexError:
+            return []
         latlngArr.append(arr)
     return latlngArr
 
