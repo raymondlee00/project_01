@@ -6,6 +6,7 @@ import pygal
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import requests
 from utl import db_ops
 
 app = Flask(__name__)
@@ -28,7 +29,7 @@ def home():
     if 'user' in session: #checks that a user is logged into a session, render welcome page
         #print("Session username: " + session['user'])
         # flash ("You are logged in.") # for testing purposes
-        print(session['user'])
+        #print(session['user'])
         return render_template("base.html", username = str(session['user']))
 
     return render_template("login.html") #if not, then render login page
@@ -86,11 +87,11 @@ def showPlanes():
         else:
             print(longitude)
             print(latitude)
-            myloc = location()                                  
+            myloc = location()
             mylat = float(myloc['latitude'])
             mylong = float(myloc['longitude'])
             planes = planeswithin(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude, False)
-            print(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude)
+            #print(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude)
            # getmap(mylat,mylong,planes)
             return render_template('results.html',  latlngArr = generateLatLngArr(planes), myLat = mylat, myLong = mylong, latDev = latitude, longDev = longitude)
         return render_template('radius_form.html', err = "maximum value is 1")
@@ -112,7 +113,7 @@ def picker():
     return redirect(url_for('home'))
 
 @app.route('/pickerresults', methods=['GET', 'POST'])
-def pickerResults():   
+def pickerResults():
 
     customlatitude = float(request.form.get("customlatitude").strip())
     customlongitude = float(request.form.get("customlongitude").strip())
@@ -120,15 +121,24 @@ def pickerResults():
     longitudeDeviance = float(request.form.get("longitudeDeviance").strip())
     planes = planeswithin(customlatitude - latitudeDeviance, customlatitude + latitudeDeviance, customlongitude - longitudeDeviance, customlongitude + longitudeDeviance, False)
     # print(mylat - latitude, mylat + latitude, mylong - longitude, mylong + longitude)
-    print("latlngArr:{}".format(generateLatLngArr(planes)))
+    #print("latlngArr:{}".format(generateLatLngArr(planes)))
     return render_template('pickerresults.html',  latlngArr = generateLatLngArr(planes), customLat = customlatitude, customLong = customlongitude)
-    
-    print(customlatitude)
-    print(customlongitude)
+
+    #print(customlatitude)
+    #print(customlongitude)
     # if(latitude > 1 or longitude > 1):
     #     flash("Maximum value is 1 degree.")
     # return render_template("pickerresults.html", customlat = customlatitude, customlong = customlongitude)
-
+@app.route('/weather', methods=['GET','POST'])
+def air():
+    url = 'https://api.airvisual.com/v2/nearest_city?lat={latitude}&lon={longitude}&key=8e46dfa7-59e4-4a4c-81d2-8872a0eb6cce'
+    payload = {}
+    headers = {}
+    lat=request.args.get("latitude")
+    long=request.args.get("longitude")
+    print(lat)
+    response = requests.request('GET', url.format(latitude=lat,longitude=long), headers = headers, data = payload, allow_redirects=False)
+    return render_template("weather.html", val=response.text)
 if __name__  == "__main__":
         app.debug = True
         app.run()
