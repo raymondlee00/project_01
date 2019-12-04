@@ -1,0 +1,10 @@
+{% extends "parent.html" %} {% block head %}
+<form action="/weather" method="get" >
+  latitude:<br>
+  <input type="text" name="latitude"><br>
+  longitude<br>
+  <input type="text" name="longitude"><br>
+  <input type="submit" value="submit"> <br>
+</form>
+{{val}}
+{% endblock %}
