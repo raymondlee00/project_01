@@ -39,6 +39,23 @@
   font-family: Lato;
 }
 
+#earth_div{
+  width: 40%;
+  height: 500px;
+}
+
+#jumbotron{
+  background: #140316;
+  text-align: center;
+  color: white;
+  margin-bottom: 0px;
+  border-radius: 0px;"
+}
+
+#lead{
+  font-family: 'Lato', sans-serif;
+}
+
 .form-label-group {
   color: white;
   font-family: Lato;
