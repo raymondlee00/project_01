@@ -95,3 +95,6 @@ shows current lat and long to user on radius form page ; JS needs to be implemen
 
 vishwaaS -- 2019-12-04 01:11
 compiling style tags in main.css
+
+vishwaaS -- 2019-12-04 01:25
+updated sitemap in designdoc -- new doc will be pushed soon
