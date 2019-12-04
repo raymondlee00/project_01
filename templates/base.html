@@ -6,7 +6,7 @@
     <title>Flat Earth BirdWatchers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-    <link rel="icon" type="image/png" href="static/fox-favicon.png"" />
+    <link rel="icon" type="image/png" href="static/plane.png" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
@@ -55,14 +55,12 @@
           maxZoom: 5,
           attribution: "NASA"
         }).addTo(earth);
-
         //Print coordinates of the mouse
         earth.on("mousemove", function(e) {
           document.getElementById("coords").innerHTML =
             "Latitude: " + e.latlng.lat + ", Longitude: " + e.latlng.lng;
         });
       }
-
       document.getElementById('intheair').onselect = function() {
       document.getElementsByTagName('p').style.color = this.options[ this.selectedIndex ].value;
     }
@@ -174,9 +172,9 @@
         <div
           class="jumbotron"
           id="homebackground"
-
+          
         >
-
+        
 
           <div id="earth_div" style="width: 40%; height: 500px;"></div>
         </div>

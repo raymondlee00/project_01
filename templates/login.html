@@ -7,7 +7,7 @@
     <title>Flat Earth Bird Watchers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-    <link rel="icon" type="image/png" href="static/fox-favicon.png" />
+    <link rel="icon" type="image/png" href="static/plane.png" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
@@ -42,7 +42,7 @@
     ></script>
     <script src="http://www.webglearth.com/v2/api.js"></script>
 </head>
-<body style="background: url(../static/earth-background.png); background-size: 100% 100%; background-repeat: no-repeat; padding-bottom: 21%; height: 5%; background-position-x: center;">
+<body style="background: url(../static/black-skies.png); background-size: 100% 100%; background-repeat: no-repeat; padding-bottom: 21%; height: 5%; background-position-x: center;">
   <nav
   class="navbar navbar-toggleable navbar-expand-lg fixed-top .bg-dark navbar-dark"
   id="navbar"
@@ -62,7 +62,8 @@
           class="navbar-brand"
           href="/"
           style="color: #ff3434; margin-left: 0px; padding-left:0px; font-family: 'Alegreya Sans SC'; font-size: 21px;"
-          >Flat Earth BirdWatchers</a>
+          >Flat Earth BirdWatchers</a
+        >
       </div>
 </nav>
   <br />
@@ -75,7 +76,7 @@
   <div class="container" style="padding-top:75px;">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto" id="signincard" style="height: 230px;">
-        <div class="card card-signin bg-light my-5 border-radius">
+        <div class="card card-signin my-5 border-radius">
           <div class="card-body">
             <!-- <h5 class="card-title text-center">Sign In</h5> -->
             <form class="form-signin" action="/auth" method="POST"> <!-- POST b/c arguments in the address bar is a bad idea -->
@@ -97,7 +98,7 @@
 
                   </center>
             </div>
-            <button class="btn btn-lg btn-secondary btn-block text-uppercase" id="loginbutton" type="submit" values="Submit">Sign in</button>
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" id="loginbutton" type="submit" values="Submit">Sign in</button>
 
           </form>
         </div>
@@ -107,9 +108,9 @@
 </div>
 
 {% endblock %}
-<center style="color: blue;">
+<center style="color: white;">
   {% block registerbutton %}
-  Don't have an account?<a href=/signup id="signuplink"> <font color="white"> Create one now.</a> </font>
+  Don't have an account?<a href=/signup id="signuplink"> Create one now.</a>
   {% endblock %}
 
   <h4>&copy; Team VSCOdeGirls</h4> </center>

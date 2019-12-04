@@ -2,17 +2,17 @@
 <body id="radius-form-body">
 <center>
   <form action="/results" method="post" class="range-field my-4 w-25" style="color: white; padding-top: 1%;">
+    
+    {% if myLat and myLong %}
+    <h7> Your current latitude is {{myLat}}.</h7> <br />
+    <h7>Your current longitude is {{myLong}}.</h7> <br />
+    <br />
+    {% endif %}
+    
     <h6 style="font-family: 'Lato', sans-serif;">
       How much deviance (in degrees) from current location would you like to
       search nearby planes?
     </h6>
-
-    {% if myLat and myLong %}
-    <h7> Your current latitude is {{myLat}}.</h7> <br>
-    <h7>Your current longitude is {{myLong}}.</h7> <br>
-    <h7> Your updated latitude is {{newLat}}.</h7> <br>
-    <h7>Your updated longitude is {{newLong}}.</h7> <br>
-    {% endif %}
 
     <br />
     {% if err %} {{err}}
@@ -42,15 +42,20 @@
       onchange="updateLongitudeInput(this.value);"
     /><br />
     <br />
+    <h7>Your updated latitude is<h7 id="updatedLat"> {{ myLat }}</h7>.</h7> <br />
+    <h7>Your updated longitude is <h7 id="updatedLng"> {{ myLong }}</h7>.</h7> <br /> 
+    <br />
     <input class="btn btn-dark" type="submit" value="Submit" style="font-family: 'Alegreya Sans SC';" />
   </form>
 </center>
 <script>
   function updateLatitudeInput(val) {
     document.getElementById("latitudeInput").innerHTML = val;
+    document.getElementById("updatedLat").innerHTML = {{ myLat }} - val;
   }
   function updateLongitudeInput(val) {
     document.getElementById("longitudeInput").innerHTML = val;
+    document.getElementById("updatedLat").innerHTML = {{ myLong }} - val;
   }
 </script>
 </body>

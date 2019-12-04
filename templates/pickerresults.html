@@ -25,6 +25,7 @@
       defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu1EzhU-CqXyvDsB1ExpzcgJp1NaNA1qQ&callback=initMap"
     ></script>
+    <script src="../static/string.js" type="text/javascript"></script>
     <style>
       /* Always set the map height explicitly to define the size of the div
              * element that contains the map. */
@@ -53,8 +54,12 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
-        var infowindow = new google.maps.InfoWindow();
-
+        var infowindow = new google.maps.InfoWindow;
+        var locWindow = new google.maps.InfoWindow;
+        var pos = {
+          lat: {{ customLat }},
+          lng: {{ customLong }},
+        };
         var marker, i;
         for (i = 0; i < locations.length; i++) {
           marker = new google.maps.Marker({
@@ -63,13 +68,13 @@
           });
 
           var myLatLng = new google.maps.LatLng(locations[i][0], locations[i][1]);
-
+          var imgHTML = String.format("<div style='float:left;'><img style='width: 100px; height: 100px;' src='https://www.telegraph.co.uk/content/dam/Travel/2018/January/white-plane-sky.jpg'></div><div style='float:right; padding: 10px;'><b>Latitude: {0}</b><br/><b>Longitude: {1}</b><br/><b>Plane Model: </b></div>", locations[i][0], locations[i][1]);
           google.maps.event.addListener(
             marker,
             "click",
             (function(marker, i) {
               return function() {
-                infowindow.setContent("<div style='float:left;'><img style='width: 100px; height: 100px;' src='https://www.telegraph.co.uk/content/dam/Travel/2018/January/white-plane-sky.jpg'></div><div style='float:right; padding: 10px;'><b>Title</b><br/>123 Address<br/> City,Country</div>");
+                infowindow.setContent(imgHTML);
                 infowindow.open(map, marker);
               };
             })(marker, i)
@@ -77,6 +82,10 @@
           bounds.extend(myLatLng);
         }
         map.fitBounds(bounds);
+        locWindow.setPosition(pos);
+        locWindow.setContent('Chosen location here.');
+        locWindow.open(map);
+        map.setCenter(pos);
       }
     </script>
   </body>
