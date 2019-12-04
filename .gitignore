@@ -106,6 +106,6 @@ venv.bak/
 # Ignore keys.txt
 keys.txt
 /map.jpeg
-/temp.txt
+temp.txt
 /temp.csv
-/pointmap.png
+pointmap.png

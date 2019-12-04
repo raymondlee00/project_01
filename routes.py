@@ -101,14 +101,20 @@ def showPlanes():
 @app.route('/radiusform', methods=['GET', 'POST'])
 def radiusForm():
     if 'user' in session: #checks that a user is logged into a session
-        return render_template("radius_form.html")
+        myloc = location()
+        mylat = float(myloc['latitude'])
+        mylong = float(myloc['longitude'])
+        return render_template("radius_form.html", myLat = mylat, myLong = mylong)
     flash("You must log in first before you can access the radius form!")
     return redirect(url_for('home'))
 
 @app.route('/picker', methods=['GET', 'POST'])
 def picker():
     if 'user' in session: #checks that a user is logged into a session
-        return render_template("picker.html")
+        myloc = location()
+        mylat = float(myloc['latitude'])
+        mylong = float(myloc['longitude'])
+        return render_template("picker.html", myLat = mylat, myLong = mylong)
     flash("You must log in first before you can access the radius form!")
     return redirect(url_for('home'))
 
@@ -124,8 +130,8 @@ def pickerResults():
     #print("latlngArr:{}".format(generateLatLngArr(planes)))
     return render_template('pickerresults.html',  latlngArr = generateLatLngArr(planes), customLat = customlatitude, customLong = customlongitude)
 
-    #print(customlatitude)
-    #print(customlongitude)
+    print(customlatitude)
+    print(customlongitude)
     # if(latitude > 1 or longitude > 1):
     #     flash("Maximum value is 1 degree.")
     # return render_template("pickerresults.html", customlat = customlatitude, customlong = customlongitude)

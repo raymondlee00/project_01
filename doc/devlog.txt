@@ -86,3 +86,9 @@ changed style to something more cool and funky
 
 vishwaaS -- 2019-11-27 8:35
 made style changes such as background changes and other UX changes for user friendly design (commits over last 2 days)
+
+vishwaaS -- 2019-12-03 02:59
+fixed favicon and made some changes to styling
+
+vishwaaL -- 2019-12-03 08:35
+shows current lat and long to user on radius form page ; JS needs to be implemented
